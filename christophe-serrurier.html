@@ -1,0 +1,1826 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Christophe Le Serrurier — Urgence 7J/7</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,600;0,9..40,700;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0D1846;
+    --navy-mid: #131d5e;
+    --blue: #406EB7;
+    --blue-light: #5A8ADB;
+    --orange: #E95623;
+    --orange-light: #FF7A4D;
+    --cream: #F9F6EF;
+    --cream-dim: rgba(249,246,239,0.7);
+    --card-bg: rgba(13, 24, 70, 0.85);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--navy);
+    color: var(--cream);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .display {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.02em;
+  }
+
+  /* ===== FLOATING KEYS BACKGROUND ===== */
+  .bg-keys {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  .bg-key {
+    position: absolute;
+    opacity: 0.04;
+    animation: floatKey linear infinite;
+  }
+
+  @keyframes floatKey {
+    0% { transform: translateY(110vh) rotate(0deg); }
+    100% { transform: translateY(-20vh) rotate(360deg); }
+  }
+
+  /* ===== NAV ===== */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 1.2rem 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background 0.4s, backdrop-filter 0.4s;
+  }
+
+  nav.scrolled {
+    background: rgba(13,24,70,0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(64,110,183,0.2);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    text-decoration: none;
+  }
+
+  .nav-logo-icon {
+    width: 44px; height: 44px;
+    background: var(--orange);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s;
+  }
+  .nav-logo:hover .nav-logo-icon { transform: rotate(180deg); }
+
+  .nav-logo-text .name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.2rem;
+    color: var(--cream);
+    letter-spacing: 0.05em;
+    line-height: 1;
+  }
+  .nav-logo-text .tagline {
+    font-size: 0.7rem;
+    color: var(--blue-light);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: rgba(249,246,239,0.7);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    position: relative;
+    transition: color 0.3s;
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -3px; left: 0;
+    width: 0; height: 2px;
+    background: var(--orange);
+    transition: width 0.3s;
+  }
+  .nav-links a:hover { color: var(--cream); }
+  .nav-links a:hover::after { width: 100%; }
+
+  .nav-cta {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--orange);
+    color: white;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+    transition: all 0.3s;
+    box-shadow: 0 4px 20px rgba(233,86,35,0.4);
+    animation: pulseOrange 2s ease-in-out infinite;
+  }
+  @keyframes pulseOrange {
+    0%, 100% { box-shadow: 0 4px 20px rgba(233,86,35,0.4); }
+    50% { box-shadow: 0 4px 40px rgba(233,86,35,0.7); }
+  }
+  .nav-cta:hover {
+    background: var(--orange-light);
+    transform: scale(1.05);
+    animation: none;
+    box-shadow: 0 6px 30px rgba(233,86,35,0.6);
+  }
+
+  /* ===== EMERGENCY SELECTOR (PAGE 1) ===== */
+  #emergency-selector {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 10;
+    padding: 6rem 2rem 3rem;
+  }
+
+  .keyhole-hero {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(70vw, 600px);
+    opacity: 0.05;
+    pointer-events: none;
+  }
+
+  .selector-eyebrow {
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .selector-eyebrow::before, .selector-eyebrow::after {
+    content: '';
+    width: 40px; height: 1px;
+    background: var(--orange);
+  }
+
+  .selector-title {
+    font-size: clamp(3.5rem, 9vw, 8rem);
+    line-height: 0.92;
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+  .selector-title .line1 { color: var(--cream); }
+  .selector-title .line2 { 
+    color: var(--orange);
+    -webkit-text-stroke: 2px var(--orange);
+  }
+
+  .selector-subtitle {
+    text-align: center;
+    color: var(--cream-dim);
+    font-size: 1.1rem;
+    margin-bottom: 3.5rem;
+    font-weight: 300;
+  }
+
+  .emergency-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+    width: min(900px, 100%);
+    max-width: 900px;
+  }
+
+  .emergency-card {
+    position: relative;
+    background: rgba(20,33,100,0.6);
+    border: 1px solid rgba(64,110,183,0.2);
+    border-radius: 16px;
+    padding: 2rem 1.8rem 2rem 2rem;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .emergency-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--orange) 0%, var(--orange-light) 100%);
+    opacity: 0;
+    transition: opacity 0.4s;
+  }
+
+  .emergency-card:hover {
+    border-color: var(--orange);
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: 0 20px 60px rgba(233,86,35,0.3);
+  }
+
+  .emergency-card:hover::before { opacity: 0.1; }
+
+  .emergency-card.urgent {
+    border-color: rgba(233,86,35,0.3);
+    background: rgba(233,86,35,0.08);
+  }
+
+  .emergency-card.urgent .card-badge {
+    background: var(--orange);
+  }
+
+  .card-icon-wrap {
+    position: relative;
+    z-index: 1;
+    flex-shrink: 0;
+    width: 64px; height: 64px;
+    background: rgba(64,110,183,0.15);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s;
+  }
+  .emergency-card:hover .card-icon-wrap {
+    background: rgba(233,86,35,0.2);
+    transform: rotate(-10deg) scale(1.1);
+  }
+
+  .card-content {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+  }
+
+  .card-badge {
+    display: inline-block;
+    padding: 0.2rem 0.7rem;
+    background: var(--blue);
+    color: white;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    border-radius: 50px;
+    margin-bottom: 0.6rem;
+  }
+
+  .card-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.7rem;
+    letter-spacing: 0.03em;
+    color: var(--cream);
+    margin-bottom: 0.4rem;
+    line-height: 1;
+  }
+
+  .card-desc {
+    font-size: 0.85rem;
+    color: rgba(249,246,239,0.6);
+    font-weight: 300;
+    line-height: 1.4;
+  }
+
+  .card-arrow {
+    position: relative;
+    z-index: 1;
+    flex-shrink: 0;
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(249,246,239,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+    color: var(--cream-dim);
+  }
+  .emergency-card:hover .card-arrow {
+    background: var(--orange);
+    border-color: var(--orange);
+    color: white;
+    transform: translateX(3px);
+  }
+
+  /* Countdown strip below grid */
+  .redirect-strip {
+    margin-top: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
+  .redirect-strip.visible { opacity: 1; }
+  .redirect-dot {
+    width: 8px; height: 8px;
+    background: var(--orange);
+    border-radius: 50%;
+    animation: blinkDot 1s ease-in-out infinite;
+  }
+  @keyframes blinkDot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.7); }
+  }
+  .redirect-text {
+    font-size: 0.85rem;
+    color: var(--cream-dim);
+  }
+  .redirect-bar {
+    flex: 1;
+    height: 2px;
+    background: rgba(249,246,239,0.1);
+    border-radius: 1px;
+    overflow: hidden;
+    max-width: 200px;
+  }
+  .redirect-progress {
+    height: 100%;
+    background: var(--orange);
+    width: 0%;
+    transition: width linear;
+    border-radius: 1px;
+  }
+
+  /* Scroll cue */
+  .scroll-cue {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    opacity: 0.5;
+    animation: bounceDown 2s ease-in-out infinite;
+  }
+  @keyframes bounceDown {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(8px); }
+  }
+  .scroll-cue span { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; }
+
+  /* ===== SECTION: URGENCE ===== */
+  .section {
+    position: relative;
+    z-index: 10;
+    padding: 7rem 3rem;
+  }
+
+  .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 1.2rem;
+  }
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 30px; height: 2px;
+    background: var(--orange);
+  }
+
+  #urgence {
+    background: linear-gradient(135deg, #0a1240 0%, #0D1846 50%, #111d5a 100%);
+    border-top: 1px solid rgba(64,110,183,0.15);
+  }
+
+  .urgence-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .urgence-left {}
+
+  .urgence-title {
+    font-size: clamp(3rem, 6vw, 6rem);
+    line-height: 0.95;
+    margin-bottom: 1.5rem;
+  }
+  .urgence-title span { color: var(--orange); }
+
+  .urgence-desc {
+    font-size: 1.05rem;
+    color: var(--cream-dim);
+    font-weight: 300;
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+    max-width: 480px;
+  }
+
+  .urgence-phone {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.2rem 2.5rem;
+    background: var(--orange);
+    color: white;
+    text-decoration: none;
+    border-radius: 12px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem;
+    letter-spacing: 0.05em;
+    transition: all 0.3s;
+    box-shadow: 0 8px 30px rgba(233,86,35,0.4);
+    margin-bottom: 1.2rem;
+  }
+  .urgence-phone:hover {
+    background: var(--orange-light);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(233,86,35,0.5);
+  }
+
+  .urgence-promise {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+  }
+  .promise-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--cream-dim);
+  }
+  .promise-dot {
+    width: 6px; height: 6px;
+    background: var(--blue-light);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .urgence-right {
+    position: relative;
+  }
+
+  /* Giant lock illustration */
+  .lock-illustration {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .lock-glow {
+    position: absolute;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(233,86,35,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: glowPulse 3s ease-in-out infinite;
+  }
+  @keyframes glowPulse {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.2); opacity: 1; }
+  }
+
+  /* Timer badge */
+  .timer-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    background: rgba(64,110,183,0.15);
+    border: 1px solid rgba(64,110,183,0.3);
+    border-radius: 50px;
+    font-size: 0.8rem;
+    color: var(--blue-light);
+    margin-bottom: 1.5rem;
+    animation: timerPulse 2s ease-in-out infinite;
+  }
+  @keyframes timerPulse {
+    0%, 100% { border-color: rgba(64,110,183,0.3); }
+    50% { border-color: rgba(64,110,183,0.7); }
+  }
+
+  /* Stats bar */
+  .stats-row {
+    display: flex;
+    gap: 0;
+    margin-top: 4rem;
+    border-top: 1px solid rgba(64,110,183,0.15);
+    padding-top: 2.5rem;
+  }
+  .stat-item {
+    flex: 1;
+    padding: 0 2rem;
+    border-right: 1px solid rgba(64,110,183,0.15);
+    text-align: center;
+  }
+  .stat-item:first-child { padding-left: 0; }
+  .stat-item:last-child { border-right: none; }
+  .stat-val {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3.5rem;
+    line-height: 1;
+    color: var(--orange);
+    margin-bottom: 0.2rem;
+  }
+  .stat-label {
+    font-size: 0.8rem;
+    color: var(--cream-dim);
+    letter-spacing: 0.05em;
+  }
+
+  /* ===== SECTION: SERVICES ===== */
+  #services {
+    background: var(--navy);
+  }
+
+  .services-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 4rem;
+    gap: 2rem;
+  }
+
+  .section-title {
+    font-size: clamp(2.5rem, 5vw, 5rem);
+    line-height: 0.95;
+  }
+  .section-title em {
+    font-style: normal;
+    color: var(--orange);
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto;
+    gap: 1.5rem;
+  }
+
+  .service-card {
+    background: rgba(20,33,100,0.5);
+    border: 1px solid rgba(64,110,183,0.15);
+    border-radius: 16px;
+    padding: 2.2rem;
+    transition: all 0.4s;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  .service-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--orange), var(--blue));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s;
+  }
+  .service-card:hover {
+    border-color: rgba(64,110,183,0.4);
+    transform: translateY(-5px);
+    background: rgba(20,33,100,0.8);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+  }
+  .service-card:hover::after { transform: scaleX(1); }
+
+  .service-card.featured {
+    grid-column: 1 / 3;
+    background: rgba(233,86,35,0.08);
+    border-color: rgba(233,86,35,0.2);
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+  }
+
+  .service-icon {
+    width: 56px; height: 56px;
+    background: rgba(64,110,183,0.15);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    transition: all 0.4s;
+    flex-shrink: 0;
+  }
+  .service-card:hover .service-icon,
+  .service-card.featured .service-icon {
+    background: rgba(233,86,35,0.2);
+  }
+
+  .service-card.featured .service-icon {
+    width: 80px; height: 80px;
+    margin-bottom: 0;
+  }
+
+  .service-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem;
+    color: var(--cream);
+    margin-bottom: 0.6rem;
+    letter-spacing: 0.03em;
+    line-height: 1.1;
+  }
+  .service-card.featured .service-name { font-size: 2rem; }
+
+  .service-desc {
+    font-size: 0.85rem;
+    color: rgba(249,246,239,0.55);
+    font-weight: 300;
+    line-height: 1.5;
+  }
+
+  .service-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 1.2rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--orange);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s;
+  }
+  .service-card:hover .service-link {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* ===== SECTION: ZONE ===== */
+  #zone {
+    background: linear-gradient(180deg, var(--navy) 0%, #090f38 100%);
+    border-top: 1px solid rgba(64,110,183,0.1);
+  }
+
+  .zone-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .zone-map {
+    position: relative;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Circular zone diagram */
+  .zone-rings {
+    position: relative;
+    width: 340px;
+    height: 340px;
+  }
+  .zone-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px dashed;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    animation: spinRing linear infinite;
+  }
+  .ring-1 {
+    width: 100%; height: 100%;
+    border-color: rgba(233,86,35,0.15);
+    animation-duration: 30s;
+  }
+  .ring-2 {
+    width: 72%; height: 72%;
+    border-color: rgba(64,110,183,0.2);
+    animation-duration: 20s;
+    animation-direction: reverse;
+  }
+  .ring-3 {
+    width: 44%; height: 44%;
+    border-color: rgba(233,86,35,0.25);
+    animation-duration: 15s;
+  }
+  @keyframes spinRing {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+  }
+
+  .zone-center {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 2;
+  }
+  .zone-km {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 4rem;
+    color: var(--orange);
+    line-height: 1;
+  }
+  .zone-km-label {
+    font-size: 0.75rem;
+    color: var(--cream-dim);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .zone-cities {
+    list-style: none;
+    margin-top: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+  .zone-city {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 0.95rem;
+    color: var(--cream-dim);
+  }
+  .city-dot {
+    width: 6px; height: 6px;
+    background: var(--orange);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* ===== SECTION: ABOUT ===== */
+  #about {
+    background: #090f38;
+    border-top: 1px solid rgba(64,110,183,0.1);
+  }
+  .about-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 5rem;
+    align-items: start;
+  }
+  .about-badge {
+    position: relative;
+    width: 260px;
+    height: 260px;
+    flex-shrink: 0;
+  }
+  .about-badge-ring {
+    width: 100%; height: 100%;
+    border-radius: 50%;
+    border: 2px solid rgba(233,86,35,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: rotateBadge 20s linear infinite;
+  }
+  @keyframes rotateBadge {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  .about-badge-inner {
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: rgba(233,86,35,0.08);
+    border: 2px solid rgba(233,86,35,0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: rotateBadge 20s linear infinite reverse;
+    text-align: center;
+    padding: 1.5rem;
+  }
+  .about-years {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3.5rem;
+    color: var(--orange);
+    line-height: 1;
+  }
+  .about-years-label {
+    font-size: 0.7rem;
+    color: var(--cream-dim);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-top: 0.2rem;
+  }
+
+  .about-content {}
+  .about-title {
+    font-size: clamp(2.5rem, 4vw, 4.5rem);
+    line-height: 1;
+    margin-bottom: 1.5rem;
+  }
+  .about-title em { font-style: normal; color: var(--orange); }
+
+  .about-text {
+    font-size: 1rem;
+    color: var(--cream-dim);
+    font-weight: 300;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    max-width: 600px;
+  }
+  .about-highlight {
+    color: var(--blue-light);
+    font-weight: 600;
+  }
+
+  .atouts-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 2.5rem;
+  }
+  .atout-item {
+    display: flex;
+    gap: 0.8rem;
+    align-items: flex-start;
+    padding: 1.2rem;
+    background: rgba(20,33,100,0.4);
+    border: 1px solid rgba(64,110,183,0.1);
+    border-radius: 12px;
+  }
+  .atout-icon {
+    width: 36px; height: 36px;
+    background: rgba(64,110,183,0.15);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .atout-name {
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--cream);
+    margin-bottom: 0.2rem;
+  }
+  .atout-desc {
+    font-size: 0.78rem;
+    color: rgba(249,246,239,0.5);
+    font-weight: 300;
+    line-height: 1.4;
+  }
+
+  /* ===== SECTION: CONTACT ===== */
+  #contact {
+    background: var(--navy);
+    border-top: 1px solid rgba(64,110,183,0.1);
+  }
+  .contact-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+  }
+
+  .contact-info .section-title { margin-bottom: 2.5rem; }
+
+  .contact-items {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+  .contact-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  .contact-item-icon {
+    width: 48px; height: 48px;
+    background: rgba(233,86,35,0.1);
+    border: 1px solid rgba(233,86,35,0.2);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .contact-item-label {
+    font-size: 0.75rem;
+    color: rgba(249,246,239,0.4);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 0.2rem;
+  }
+  .contact-item-value {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--cream);
+    text-decoration: none;
+  }
+  .contact-item-value:hover { color: var(--orange); }
+
+  .contact-form {
+    background: rgba(20,33,100,0.4);
+    border: 1px solid rgba(64,110,183,0.15);
+    border-radius: 20px;
+    padding: 2.5rem;
+  }
+  .form-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    color: var(--cream);
+    margin-bottom: 2rem;
+    letter-spacing: 0.03em;
+  }
+
+  .form-group {
+    margin-bottom: 1.2rem;
+  }
+  .form-label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: rgba(249,246,239,0.5);
+    margin-bottom: 0.5rem;
+  }
+  .form-input, .form-textarea {
+    width: 100%;
+    padding: 0.9rem 1.2rem;
+    background: rgba(13,24,70,0.8);
+    border: 1px solid rgba(64,110,183,0.2);
+    border-radius: 10px;
+    color: var(--cream);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    transition: border-color 0.3s;
+    outline: none;
+  }
+  .form-input:focus, .form-textarea:focus {
+    border-color: var(--orange);
+    background: rgba(13,24,70,0.95);
+  }
+  .form-input::placeholder, .form-textarea::placeholder {
+    color: rgba(249,246,239,0.2);
+  }
+  .form-textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  .form-submit {
+    width: 100%;
+    padding: 1rem 2rem;
+    background: var(--orange);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.3rem;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    margin-top: 1.5rem;
+  }
+  .form-submit:hover {
+    background: var(--orange-light);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(233,86,35,0.4);
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    position: relative;
+    z-index: 10;
+    background: #070c2c;
+    border-top: 1px solid rgba(64,110,183,0.1);
+    padding: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+  .footer-copy {
+    font-size: 0.8rem;
+    color: rgba(249,246,239,0.3);
+  }
+  .footer-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+  .footer-links a {
+    font-size: 0.8rem;
+    color: rgba(249,246,239,0.4);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  .footer-links a:hover { color: var(--orange); }
+
+  /* ===== ANIMATIONS ===== */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-delay-1 { transition-delay: 0.15s; }
+  .reveal-delay-2 { transition-delay: 0.3s; }
+  .reveal-delay-3 { transition-delay: 0.45s; }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links, .nav-cta { display: none; }
+
+    .selector-title { font-size: clamp(2.8rem, 11vw, 5rem); }
+    .emergency-grid { grid-template-columns: 1fr; }
+
+    .section { padding: 5rem 1.5rem; }
+
+    .urgence-inner, .zone-inner, .about-inner, .contact-inner {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .services-grid { grid-template-columns: 1fr; }
+    .service-card.featured { grid-column: auto; flex-direction: column; }
+
+    .stats-row { gap: 1rem; flex-wrap: wrap; }
+    .stat-item { border-right: none; border-bottom: 1px solid rgba(64,110,183,0.15); padding: 1.5rem 0; flex: 1 0 40%; }
+
+    .section-header { flex-direction: column; align-items: flex-start; }
+    .atouts-grid { grid-template-columns: 1fr; }
+
+    footer { flex-direction: column; align-items: flex-start; }
+  }
+
+  /* ===== SECTION TRANSITION LINE ===== */
+  .section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(64,110,183,0.3), rgba(233,86,35,0.3), transparent);
+    position: relative;
+    z-index: 10;
+  }
+
+  /* ===== MOBILE MENU ===== */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0.3rem;
+  }
+  .hamburger span {
+    display: block;
+    width: 24px; height: 2px;
+    background: var(--cream);
+    border-radius: 1px;
+    transition: all 0.3s;
+  }
+  @media (max-width: 768px) {
+    .hamburger { display: flex; }
+  }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(7,12,44,0.98);
+    z-index: 200;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3rem;
+    color: var(--cream);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    transition: color 0.3s;
+  }
+  .mobile-menu a:hover { color: var(--orange); }
+  .mobile-close {
+    position: absolute;
+    top: 1.5rem; right: 1.5rem;
+    background: none;
+    border: none;
+    color: var(--cream);
+    cursor: pointer;
+    font-size: 2rem;
+    opacity: 0.6;
+  }
+</style>
+</head>
+<body>
+
+<!-- FLOATING KEYS BACKGROUND -->
+<div class="bg-keys" id="bgKeys"></div>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="toggleMenu()">✕</button>
+  <a href="#urgence" onclick="toggleMenu()">Urgence</a>
+  <a href="#services" onclick="toggleMenu()">Services</a>
+  <a href="#zone" onclick="toggleMenu()">Zone</a>
+  <a href="#about" onclick="toggleMenu()">À Propos</a>
+  <a href="#contact" onclick="toggleMenu()">Contact</a>
+  <a href="tel:0698956423" style="color:var(--orange)">06 98 95 64 23</a>
+</div>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-icon">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <circle cx="9" cy="9" r="4" stroke="white" stroke-width="2"/>
+        <path d="M13 9h8M17 7v4" stroke="white" stroke-width="2" stroke-linecap="round"/>
+        <path d="M13 13l-4 8" stroke="white" stroke-width="2" stroke-linecap="round"/>
+        <rect x="7" y="18" width="4" height="2" rx="0.5" fill="white"/>
+        <rect x="7" y="15" width="3" height="2" rx="0.5" fill="white"/>
+      </svg>
+    </div>
+    <div class="nav-logo-text">
+      <div class="name">Christophe Le Serrurier</div>
+      <div class="tagline">Intervention 7J/7 · 90 km</div>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#urgence">Urgence</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#zone">Zone d'intervention</a></li>
+    <li><a href="#about">À propos</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="tel:0698956423" class="nav-cta">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+      <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013 12.18 19.79 19.79 0 016.07 3.52 2 2 0 018.05 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L12.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+    </svg>
+    06 98 95 64 23
+  </a>
+  <button class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ================================================ -->
+<!-- SECTION 1: EMERGENCY SELECTOR -->
+<!-- ================================================ -->
+<section id="emergency-selector">
+  <!-- Giant keyhole bg -->
+  <svg class="keyhole-hero" viewBox="0 0 200 300" fill="none">
+    <circle cx="100" cy="90" r="70" fill="#E95623"/>
+    <path d="M60 90 L80 260 L120 260 L140 90" fill="#E95623"/>
+    <circle cx="100" cy="90" r="40" fill="#0D1846"/>
+  </svg>
+
+  <div class="selector-eyebrow">urgence serrurier</div>
+
+  <div class="selector-title">
+    <div class="line1">QUELLE EST</div>
+    <div class="line2">VOTRE URGENCE ?</div>
+  </div>
+
+  <p class="selector-subtitle">Choisissez votre situation — accès immédiat à la solution</p>
+
+  <div class="emergency-grid">
+
+    <div class="emergency-card urgent" onclick="redirectTo('urgence', this, 'Porte claquée')" tabindex="0">
+      <div class="card-icon-wrap">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#E95623" stroke-width="1.8" stroke-linecap="round">
+          <rect x="3" y="11" width="18" height="11" rx="2"/>
+          <path d="M7 11V7a5 5 0 0110 0v4"/>
+          <circle cx="12" cy="16" r="1.5" fill="#E95623" stroke="none"/>
+          <path d="M12 17.5v2"/>
+        </svg>
+      </div>
+      <div class="card-content">
+        <span class="card-badge">URGENCE</span>
+        <div class="card-title">PORTE CLAQUÉE</div>
+        <div class="card-desc">Clé perdue, porte bloquée ou serrure défaillante — intervention immédiate.</div>
+      </div>
+      <div class="card-arrow">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </div>
+    </div>
+
+    <div class="emergency-card urgent" onclick="redirectTo('urgence', this, 'Après effraction')" tabindex="0">
+      <div class="card-icon-wrap">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#E95623" stroke-width="1.8" stroke-linecap="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          <path d="M9 12l2 2 4-4" stroke="#E95623" stroke-width="2"/>
+        </svg>
+      </div>
+      <div class="card-content">
+        <span class="card-badge">URGENCE</span>
+        <div class="card-title">APRÈS EFFRACTION</div>
+        <div class="card-desc">Sécurisation immédiate de votre domicile après un cambriolage.</div>
+      </div>
+      <div class="card-arrow">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </div>
+    </div>
+
+    <div class="emergency-card" onclick="redirectTo('services', this, 'Changement de serrure')" tabindex="0">
+      <div class="card-icon-wrap">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#406EB7" stroke-width="1.8" stroke-linecap="round">
+          <circle cx="9" cy="9" r="4"/>
+          <path d="M13 9h8M17 7v4"/>
+          <path d="M13 13l-3 8"/>
+          <rect x="8" y="18" width="4" height="2" rx="0.5" fill="#406EB7" stroke="none"/>
+        </svg>
+      </div>
+      <div class="card-content">
+        <span class="card-badge" style="background:var(--blue)">SERVICES</span>
+        <div class="card-title">SERRURE / CLÉ</div>
+        <div class="card-desc">Installation, remplacement, blindage, ou duplication de clés.</div>
+      </div>
+      <div class="card-arrow">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </div>
+    </div>
+
+    <div class="emergency-card" onclick="redirectTo('contact', this, 'Devis gratuit')" tabindex="0">
+      <div class="card-icon-wrap">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#406EB7" stroke-width="1.8" stroke-linecap="round">
+          <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+          <path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/>
+        </svg>
+      </div>
+      <div class="card-content">
+        <span class="card-badge" style="background:var(--blue)">DEVIS GRATUIT</span>
+        <div class="card-title">INSTALLATION / DEVIS</div>
+        <div class="card-desc">Projet de sécurisation résidentiel ou professionnel, devis offert.</div>
+      </div>
+      <div class="card-arrow">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Redirect countdown -->
+  <div class="redirect-strip" id="redirectStrip">
+    <div class="redirect-dot"></div>
+    <div class="redirect-text" id="redirectText">Redirection vers <strong></strong>…</div>
+    <div class="redirect-bar"><div class="redirect-progress" id="redirectProgress"></div></div>
+  </div>
+
+  <div class="scroll-cue">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+    <span>Découvrir</span>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ================================================ -->
+<!-- SECTION 2: URGENCE -->
+<!-- ================================================ -->
+<section id="urgence" class="section">
+  <div class="urgence-inner">
+    <div class="urgence-left reveal">
+      <div class="section-label">Dépannage express</div>
+
+      <h2 class="urgence-title">
+        DISPONIBLE<br>
+        <span>7J / 7</span><br>
+        POUR VOUS
+      </h2>
+
+      <div class="timer-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        Délai d'intervention rapide · Zone 90 km
+      </div>
+
+      <p class="urgence-desc">
+        Artisan serrurier indépendant formé chez les <strong style="color:var(--blue-light)">Compagnons du Tour de France</strong>, 
+        Christophe intervient rapidement sur tous types de serrurerie. Pas de plateau téléphonique, 
+        pas d'arnaque — seulement un professionnel qualifié avec un devis transparent.
+      </p>
+
+      <a href="tel:0698956423" class="urgence-phone">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+          <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013 12.18 19.79 19.79 0 016.07 3.52 2 2 0 018.05 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L12.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+        </svg>
+        06 98 95 64 23
+      </a>
+
+      <div class="urgence-promise">
+        <div class="promise-item"><div class="promise-dot"></div> Sans casse si possible</div>
+        <div class="promise-item"><div class="promise-dot"></div> Devis gratuit</div>
+        <div class="promise-item"><div class="promise-dot"></div> Prix transparents</div>
+        <div class="promise-item"><div class="promise-dot"></div> Diplômé CAP</div>
+      </div>
+    </div>
+
+    <div class="urgence-right reveal reveal-delay-1">
+      <div class="lock-illustration">
+        <div class="lock-glow"></div>
+        <!-- Big animated lock SVG -->
+        <svg width="280" height="320" viewBox="0 0 280 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Lock body -->
+          <rect x="40" y="130" width="200" height="160" rx="20" fill="rgba(64,110,183,0.1)" stroke="rgba(64,110,183,0.4)" stroke-width="2"/>
+          <!-- Shackle -->
+          <path d="M90 130 L90 80 Q90 30 140 30 Q190 30 190 80 L190 130" stroke="rgba(233,86,35,0.6)" stroke-width="16" stroke-linecap="round" fill="none"/>
+          <!-- Keyhole outer -->
+          <circle cx="140" cy="195" r="28" fill="rgba(233,86,35,0.1)" stroke="rgba(233,86,35,0.5)" stroke-width="2"/>
+          <!-- Keyhole inner circle -->
+          <circle cx="140" cy="188" r="14" fill="rgba(13,24,70,0.9)" stroke="rgba(233,86,35,0.7)" stroke-width="1.5"/>
+          <!-- Keyhole slot -->
+          <path d="M132 198 L148 198 L145 230 L135 230 Z" fill="rgba(13,24,70,0.9)" stroke="rgba(233,86,35,0.7)" stroke-width="1.5" stroke-linejoin="round"/>
+          <!-- Decorative bolts -->
+          <circle cx="65" cy="155" r="6" fill="rgba(64,110,183,0.3)" stroke="rgba(64,110,183,0.5)" stroke-width="1"/>
+          <circle cx="215" cy="155" r="6" fill="rgba(64,110,183,0.3)" stroke="rgba(64,110,183,0.5)" stroke-width="1"/>
+          <circle cx="65" cy="265" r="6" fill="rgba(64,110,183,0.3)" stroke="rgba(64,110,183,0.5)" stroke-width="1"/>
+          <circle cx="215" cy="265" r="6" fill="rgba(64,110,183,0.3)" stroke="rgba(64,110,183,0.5)" stroke-width="1"/>
+          <!-- Shine -->
+          <path d="M55 145 L90 145" stroke="rgba(255,255,255,0.08)" stroke-width="8" stroke-linecap="round"/>
+          <path d="M55 160 L80 160" stroke="rgba(255,255,255,0.05)" stroke-width="6" stroke-linecap="round"/>
+        </svg>
+      </div>
+
+      <!-- Stats row -->
+      <div class="stats-row">
+        <div class="stat-item">
+          <div class="stat-val">7J/7</div>
+          <div class="stat-label">Disponibilité</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-val">90km</div>
+          <div class="stat-label">Rayon d'action</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-val">CAP</div>
+          <div class="stat-label">Diplômé</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ================================================ -->
+<!-- SECTION 3: SERVICES -->
+<!-- ================================================ -->
+<section id="services" class="section">
+  <div class="services-inner">
+    <div class="section-header reveal">
+      <div>
+        <div class="section-label">Ce que je fais</div>
+        <h2 class="section-title">MES<br><em>SERVICES</em></h2>
+      </div>
+      <p style="max-width:320px; color:var(--cream-dim); font-weight:300; font-size:0.95rem; line-height:1.7;">
+        Du dépannage d'urgence à l'installation de systèmes haute sécurité, une expertise complète au juste prix.
+      </p>
+    </div>
+
+    <div class="services-grid reveal reveal-delay-1">
+
+      <!-- Featured card -->
+      <div class="service-card featured">
+        <div class="service-icon">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#E95623" stroke-width="1.5" stroke-linecap="round">
+            <rect x="3" y="11" width="18" height="11" rx="2"/>
+            <path d="M7 11V7a5 5 0 0110 0v4"/>
+            <circle cx="12" cy="16" r="1.5" fill="#E95623" stroke="none"/>
+          </svg>
+        </div>
+        <div>
+          <div class="service-name">OUVERTURE DE PORTE<br>EN URGENCE</div>
+          <div class="service-desc">Porte claquée, serrure bloquée, clé perdue ? Intervention rapide sans casse si possible, 7j/7 y compris jours fériés.</div>
+          <a href="tel:0698956423" class="service-link" style="opacity:1; transform:none;">Appeler maintenant →</a>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#406EB7" stroke-width="1.8" stroke-linecap="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <div class="service-name">SÉCURISATION APRÈS EFFRACTION</div>
+        <div class="service-desc">Remplacement immédiat de serrures forcées, blindage de porte, mise en sécurité rapide.</div>
+        <a href="#contact" class="service-link">En savoir plus →</a>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#406EB7" stroke-width="1.8" stroke-linecap="round">
+            <circle cx="9" cy="9" r="4"/>
+            <path d="M13 9h8M17 7v4"/>
+            <path d="M13 13l-3 8"/>
+            <rect x="8" y="18" width="4" height="2" rx="0.5" fill="#406EB7" stroke="none"/>
+          </svg>
+        </div>
+        <div class="service-name">DUPLICATION DE CLÉS</div>
+        <div class="service-desc">Reproduction de tous types de clés, même les modèles sécurisés brevetés. Service rapide sur place.</div>
+        <a href="#contact" class="service-link">En savoir plus →</a>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#406EB7" stroke-width="1.8" stroke-linecap="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+            <path d="M9 22V12h6v10"/>
+          </svg>
+        </div>
+        <div class="service-name">RÉSIDENTIEL</div>
+        <div class="service-desc">Installation de serrures haute sécurité, multipoints, blindages et contrôle d'accès pour votre domicile.</div>
+        <a href="#contact" class="service-link">En savoir plus →</a>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#406EB7" stroke-width="1.8" stroke-linecap="round">
+            <path d="M2 20h20M4 20V8l8-6 8 6v12"/>
+            <rect x="9" y="12" width="6" height="8"/>
+          </svg>
+        </div>
+        <div class="service-name">COMMERCIAL</div>
+        <div class="service-desc">Sécurisation de locaux professionnels, systèmes de contrôle d'accès, devis personnalisé gratuit.</div>
+        <a href="#contact" class="service-link">En savoir plus →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ================================================ -->
+<!-- SECTION 4: ZONE D'INTERVENTION -->
+<!-- ================================================ -->
+<section id="zone" class="section">
+  <div class="zone-inner">
+    <div class="reveal">
+      <div class="section-label">Déplacements</div>
+      <h2 class="section-title" style="margin-bottom:1.5rem;">ZONE<br><em>D'INTER-<br>VENTION</em></h2>
+      <p style="color:var(--cream-dim); font-weight:300; font-size:0.95rem; line-height:1.7; margin-bottom:2rem; max-width:440px;">
+        Basé à <strong style="color:var(--blue-light)">Montrevel-en-Bresse</strong>, je me déplace dans tout le secteur avec mon véhicule atelier équipé.
+      </p>
+      <ul class="zone-cities">
+        <li class="zone-city"><div class="city-dot"></div> Bourg-en-Bresse</li>
+        <li class="zone-city"><div class="city-dot"></div> Mâcon</li>
+        <li class="zone-city"><div class="city-dot"></div> Tournus</li>
+        <li class="zone-city"><div class="city-dot"></div> Lons-le-Saunier</li>
+        <li class="zone-city"><div class="city-dot"></div> Oyonnax</li>
+        <li class="zone-city" style="color:rgba(249,246,239,0.35);">+ toutes communes dans 90 km</li>
+      </ul>
+    </div>
+    <div class="reveal reveal-delay-1">
+      <div class="zone-map">
+        <div class="zone-rings">
+          <div class="zone-ring ring-1"></div>
+          <div class="zone-ring ring-2"></div>
+          <div class="zone-ring ring-3"></div>
+          <div class="zone-center">
+            <div class="zone-km">90</div>
+            <div class="zone-km-label">km autour</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ================================================ -->
+<!-- SECTION 5: ABOUT -->
+<!-- ================================================ -->
+<section id="about" class="section">
+  <div class="about-inner">
+    <div class="reveal">
+      <div class="about-badge">
+        <div class="about-badge-ring">
+          <div class="about-badge-inner">
+            <div class="about-years">CAP</div>
+            <div class="about-years-label">Serrurier<br>Métallier</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="about-content reveal reveal-delay-1">
+      <div class="section-label">À propos</div>
+      <h2 class="about-title">
+        CHRISTOPHE<br>
+        <em>LE SERRURIER</em>
+      </h2>
+      <p class="about-text">
+        Artisan indépendant basé à <span class="about-highlight">Montrevel-en-Bresse</span>, je suis titulaire d'un 
+        <span class="about-highlight">CAP Serrurier Métallier</span> et fier d'avoir été formé chez les 
+        <span class="about-highlight">Compagnons du Tour de France</span> — une école d'excellence et de rigueur.
+      </p>
+      <p class="about-text">
+        Mon engagement est simple : intervenir vite, travailler bien, facturer juste. Pas de centrale téléphonique, 
+        pas de sous-traitance — vous parlez directement à l'artisan qui se déplace chez vous.
+      </p>
+
+      <div class="atouts-grid">
+        <div class="atout-item">
+          <div class="atout-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#406EB7" stroke-width="2" stroke-linecap="round">
+              <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/>
+              <path d="M22 4L12 14.01l-3-3"/>
+            </svg>
+          </div>
+          <div>
+            <div class="atout-name">CAP Diplômé</div>
+            <div class="atout-desc">Formation Compagnons du Tour de France</div>
+          </div>
+        </div>
+        <div class="atout-item">
+          <div class="atout-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#406EB7" stroke-width="2" stroke-linecap="round">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+          </div>
+          <div>
+            <div class="atout-name">Réactivité 7J/7</div>
+            <div class="atout-desc">Jours fériés inclus, délai rapide</div>
+          </div>
+        </div>
+        <div class="atout-item">
+          <div class="atout-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#406EB7" stroke-width="2" stroke-linecap="round">
+              <line x1="12" y1="1" x2="12" y2="23"/>
+              <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
+            </svg>
+          </div>
+          <div>
+            <div class="atout-name">Prix Transparents</div>
+            <div class="atout-desc">Devis gratuit, facturation claire</div>
+          </div>
+        </div>
+        <div class="atout-item">
+          <div class="atout-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#406EB7" stroke-width="2" stroke-linecap="round">
+              <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
+            </svg>
+          </div>
+          <div>
+            <div class="atout-name">Artisan Direct</div>
+            <div class="atout-desc">Sans intermédiaire, contact direct</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ================================================ -->
+<!-- SECTION 6: CONTACT -->
+<!-- ================================================ -->
+<section id="contact" class="section">
+  <div class="contact-inner">
+    <div class="contact-info reveal">
+      <div class="section-label">Me contacter</div>
+      <h2 class="section-title" style="margin-bottom:2rem;">DEMANDE<br>DE <em>DEVIS</em><br>GRATUIT</h2>
+
+      <div class="contact-items">
+        <div class="contact-item">
+          <div class="contact-item-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E95623" stroke-width="2" stroke-linecap="round">
+              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013 12.18 19.79 19.79 0 016.07 3.52 2 2 0 018.05 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L12.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+            </svg>
+          </div>
+          <div>
+            <div class="contact-item-label">Téléphone</div>
+            <a href="tel:0698956423" class="contact-item-value">06 98 95 64 23</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E95623" stroke-width="2" stroke-linecap="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+          </div>
+          <div>
+            <div class="contact-item-label">Email</div>
+            <a href="mailto:christopheleserrurier@outlook.fr" class="contact-item-value">christopheleserrurier@outlook.fr</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E95623" stroke-width="2" stroke-linecap="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+          </div>
+          <div>
+            <div class="contact-item-label">Adresse</div>
+            <span class="contact-item-value">01340 Montrevel-en-Bresse</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Emergency CTA -->
+      <div style="padding:2rem; background:rgba(233,86,35,0.08); border:1px solid rgba(233,86,35,0.2); border-radius:16px;">
+        <div style="font-size:0.75rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--orange); margin-bottom:0.5rem; font-weight:600;">URGENCE ?</div>
+        <div style="font-family:'Bebas Neue',sans-serif; font-size:1.5rem; color:var(--cream); margin-bottom:0.8rem; line-height:1.1;">N'ATTENDEZ PAS,<br>APPELEZ MAINTENANT</div>
+        <a href="tel:0698956423" style="display:inline-flex;align-items:center;gap:0.6rem;padding:0.8rem 1.6rem;background:var(--orange);color:white;border-radius:8px;text-decoration:none;font-weight:700;font-size:0.95rem;transition:all 0.3s;" onmouseover="this.style.background='var(--orange-light)'" onmouseout="this.style.background='var(--orange)'">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013 12.18 19.79 19.79 0 016.07 3.52 2 2 0 018.05 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L12.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          06 98 95 64 23
+        </a>
+      </div>
+    </div>
+
+    <div class="reveal reveal-delay-1">
+      <div class="contact-form">
+        <div class="form-title">ENVOYEZ UN MESSAGE</div>
+        <div class="form-group">
+          <label class="form-label">Nom complet</label>
+          <input type="text" class="form-input" placeholder="Jean Dupont">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Téléphone</label>
+          <input type="tel" class="form-input" placeholder="06 12 34 56 78">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email</label>
+          <input type="email" class="form-input" placeholder="jean@email.com">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Votre demande</label>
+          <textarea class="form-textarea" placeholder="Décrivez votre problème ou demande..."></textarea>
+        </div>
+        <button class="form-submit" onclick="submitForm(this)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          ENVOYER MA DEMANDE
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-copy">© 2025 Christophe Le Serrurier — Montrevel-en-Bresse</div>
+  <ul class="footer-links">
+    <li><a href="#urgence">Urgence</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">À propos</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="tel:0698956423" style="font-family:'Bebas Neue',sans-serif; font-size:1.1rem; color:var(--orange); text-decoration:none; letter-spacing:0.05em;">06 98 95 64 23</a>
+</footer>
+
+<script>
+// ===== FLOATING KEYS BACKGROUND =====
+(function() {
+  const container = document.getElementById('bgKeys');
+  const keyPaths = [
+    // Key shape 1
+    `<svg viewBox="0 0 80 200" fill="white"><circle cx="40" cy="40" r="30" fill="none" stroke="white" stroke-width="8"/><rect x="34" y="68" width="12" height="80"/><rect x="34" y="120" width="22" height="8" rx="2"/><rect x="34" y="108" width="18" height="8" rx="2"/></svg>`,
+    // Padlock shape
+    `<svg viewBox="0 0 80 100" fill="none" stroke="white" stroke-width="5"><rect x="10" y="45" width="60" height="50" rx="8"/><path d="M25 45 L25 28 Q25 8 40 8 Q55 8 55 28 L55 45" fill="none"/><circle cx="40" cy="65" r="8" fill="white" opacity="0.5"/></svg>`,
+    // Simple key
+    `<svg viewBox="0 0 160 40" fill="white"><circle cx="20" cy="20" r="15" fill="none" stroke="white" stroke-width="5"/><rect x="34" y="17" width="110" height="6" rx="3"/><rect x="110" y="17" width="6" height="14" rx="2"/><rect x="126" y="17" width="6" height="10" rx="2"/></svg>`
+  ];
+
+  for (let i = 0; i < 18; i++) {
+    const div = document.createElement('div');
+    div.className = 'bg-key';
+    const keyIndex = i % keyPaths.length;
+    div.innerHTML = keyPaths[keyIndex];
+    const size = Math.random() * 80 + 40;
+    div.style.width = size + 'px';
+    div.style.left = Math.random() * 100 + 'vw';
+    div.style.animationDuration = (Math.random() * 30 + 20) + 's';
+    div.style.animationDelay = -(Math.random() * 50) + 's';
+    div.style.opacity = (Math.random() * 0.05 + 0.02).toString();
+    container.appendChild(div);
+  }
+})();
+
+// ===== NAV SCROLL =====
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('mainNav');
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// ===== REDIRECT ON CARD CLICK =====
+let redirectTimer = null;
+
+function redirectTo(sectionId, cardEl, label) {
+  if (redirectTimer) clearTimeout(redirectTimer);
+
+  // Update strip
+  const strip = document.getElementById('redirectStrip');
+  const text = document.getElementById('redirectText');
+  const progress = document.getElementById('redirectProgress');
+
+  strip.classList.add('visible');
+  text.innerHTML = `Direction <strong>${label}</strong>…`;
+  progress.style.transition = 'none';
+  progress.style.width = '0%';
+
+  // Force reflow
+  progress.getBoundingClientRect();
+  progress.style.transition = 'width 1.5s linear';
+  progress.style.width = '100%';
+
+  redirectTimer = setTimeout(() => {
+    const target = document.getElementById(sectionId);
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    setTimeout(() => {
+      strip.classList.remove('visible');
+      progress.style.width = '0%';
+    }, 600);
+  }, 1500);
+}
+
+// ===== SCROLL REVEAL =====
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+// ===== FORM SUBMIT =====
+function submitForm(btn) {
+  btn.textContent = '✓ MESSAGE ENVOYÉ !';
+  btn.style.background = '#2a7a3b';
+  setTimeout(() => {
+    btn.innerHTML = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> ENVOYER MA DEMANDE`;
+    btn.style.background = '';
+  }, 3000);
+}
+
+// ===== MOBILE MENU =====
+function toggleMenu() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+</script>
+</body>
+</html>

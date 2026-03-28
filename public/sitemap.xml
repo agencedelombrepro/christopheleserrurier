@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Pages principales -->
+  <url>
+    <loc>https://christophe-leserrurier.fr/</loc>
+    <priority>1.0</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- Pages services -->
+  <url>
+    <loc>https://christophe-leserrurier.fr/depannage-urgence/</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://christophe-leserrurier.fr/ouverture-porte-claquee/</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://christophe-leserrurier.fr/changement-serrure/</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://christophe-leserrurier.fr/securisation-cambriolage/</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- Hub zones -->
+  <url>
+    <loc>https://christophe-leserrurier.fr/zones-intervention/</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- Tier 1 — Priorité maximale -->
+  <url>
+    <loc>https://christophe-leserrurier.fr/zones-intervention/serrurier-montrevel-en-bresse/</loc>
+    <priority>0.95</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://christophe-leserrurier.fr/zones-intervention/serrurier-polliat/</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://christophe-leserrurier.fr/zones-intervention/serrurier-coligny/</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://christophe-leserrurier.fr/zones-intervention/serrurier-saint-trivier-de-courtes/</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://christophe-leserrurier.fr/zones-intervention/serrurier-bage-dommartin/</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://christophe-leserrurier.fr/zones-intervention/serrurier-pont-de-vaux/</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://christophe-leserrurier.fr/zones-intervention/serrurier-saint-amour/</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://christophe-leserrurier.fr/zones-intervention/serrurier-viriat/</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- Tier 2 -->
+  <url>
+    <loc>https://christophe-leserrurier.fr/zones-intervention/serrurier-louhans/</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://christophe-leserrurier.fr/zones-intervention/serrurier-lons-le-saunier/</loc>
+    <priority>0.75</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- Tier 3 -->
+  <url>
+    <loc>https://christophe-leserrurier.fr/zones-intervention/serrurier-tournus/</loc>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://christophe-leserrurier.fr/zones-intervention/serrurier-oyonnax/</loc>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://christophe-leserrurier.fr/zones-intervention/serrurier-amberieu-en-bugey/</loc>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://christophe-leserrurier.fr/zones-intervention/serrurier-chatillon-sur-chalaronne/</loc>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- Pages secondaires -->
+  <url>
+    <loc>https://christophe-leserrurier.fr/contact/</loc>
+    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://christophe-leserrurier.fr/mentions-legales/</loc>
+    <priority>0.2</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+</urlset>
