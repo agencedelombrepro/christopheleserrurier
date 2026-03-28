@@ -16,7 +16,7 @@ export default function Zone() {
               couvrant l'Ain, le Jura et la Saône-et-Loire. Consultez la page dédiée à votre ville.
             </p>
             <div className="city-pills">
-              <span className="city-pill main">Montrevel-en-Bresse</span>
+              <Link className="city-pill main" to="/zones-intervention/serrurier-montrevel-en-bresse">Montrevel-en-Bresse</Link>
               {displayCities.filter((c) => c.slug !== 'montrevel-en-bresse').map((c) => (
                 <Link key={c.slug} className="city-pill" to={`/zones-intervention/serrurier-${c.slug}`}>
                   {c.name}

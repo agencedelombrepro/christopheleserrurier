@@ -22,7 +22,7 @@ export default function ZonesHub() {
       <section style={{ background: 'var(--navy)', padding: '5rem 2.5rem' }}>
         <div style={{ maxWidth: '800px', margin: '0 auto' }}>
           <div className="label-tag" style={{ color: 'rgba(255,255,255,.45)' }}>Zone de couverture</div>
-          <h1 style={{ fontFamily: "'Syne',sans-serif", fontSize: 'clamp(2rem,4vw,3.5rem)', fontWeight: 800, color: '#fff', lineHeight: 1.1, marginBottom: '1.2rem' }}>
+          <h1 style={{ fontFamily: "'Clear Sans',sans-serif", fontSize: 'clamp(2rem,4vw,3.5rem)', fontWeight: 800, color: '#fff', lineHeight: 1.1, marginBottom: '1.2rem' }}>
             Serrurier dans<br /><span style={{ color: 'var(--orange)' }}>toute la région</span>
           </h1>
           <p style={{ fontSize: '1rem', color: 'rgba(255,255,255,.6)', lineHeight: 1.7, maxWidth: '560px', marginBottom: '2rem' }}>

@@ -19,7 +19,7 @@ export default function ServiceSecurisation() {
       <section style={{ background: 'linear-gradient(135deg,#3d0000 0%,#7a1a1a 60%,#2d0808 100%)', padding: '5rem 2.5rem' }}>
         <div style={{ maxWidth: '800px', margin: '0 auto' }}>
           <div className="label-tag" style={{ color: 'rgba(255,255,255,.5)' }}>Après effraction</div>
-          <h1 style={{ fontFamily: "'Syne',sans-serif", fontSize: 'clamp(2rem,4vw,3.5rem)', fontWeight: 800, color: '#fff', lineHeight: 1.1, marginBottom: '1.2rem' }}>
+          <h1 style={{ fontFamily: "'Clear Sans',sans-serif", fontSize: 'clamp(2rem,4vw,3.5rem)', fontWeight: 800, color: '#fff', lineHeight: 1.1, marginBottom: '1.2rem' }}>
             Sécurisation après<br /><span style={{ color: 'var(--orange)' }}>cambriolage</span>
           </h1>
           <p style={{ fontSize: '1.05rem', color: 'rgba(255,255,255,.65)', lineHeight: 1.7, maxWidth: '560px', marginBottom: '2rem' }}>
@@ -40,7 +40,7 @@ export default function ServiceSecurisation() {
       <section className="section" style={{ background: '#fff' }}>
         <div className="container">
           <div className="reveal" style={{ maxWidth: '760px' }}>
-            <h2 style={{ fontFamily: "'Syne',sans-serif", fontSize: '1.75rem', color: 'var(--navy)', marginBottom: '.9rem' }}>
+            <h2 style={{ fontFamily: "'Clear Sans',sans-serif", fontSize: '1.75rem', color: 'var(--navy)', marginBottom: '.9rem' }}>
               Que faire après un cambriolage ?
             </h2>
             <p style={{ color: 'var(--text-soft)', lineHeight: 1.8, marginBottom: '1rem', fontSize: '.95rem' }}>
@@ -54,9 +54,9 @@ export default function ServiceSecurisation() {
                 { step: '3', title: 'Renforcement optionnel', text: 'Sur devis : blindage de porte, serrure haute sécurité, protection des autres accès.' },
               ].map((item) => (
                 <div key={item.step} style={{ display: 'flex', gap: '1rem', marginBottom: '1.3rem', alignItems: 'flex-start' }}>
-                  <div style={{ width: '36px', height: '36px', background: 'var(--orange)', color: '#fff', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: "'Syne',sans-serif", fontWeight: 800, flexShrink: 0 }}>{item.step}</div>
+                  <div style={{ width: '36px', height: '36px', background: 'var(--orange)', color: '#fff', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: "'Clear Sans',sans-serif", fontWeight: 800, flexShrink: 0 }}>{item.step}</div>
                   <div>
-                    <div style={{ fontFamily: "'Syne',sans-serif", fontWeight: 700, color: 'var(--navy)', marginBottom: '.25rem' }}>{item.title}</div>
+                    <div style={{ fontFamily: "'Clear Sans',sans-serif", fontWeight: 700, color: 'var(--navy)', marginBottom: '.25rem' }}>{item.title}</div>
                     <div style={{ fontSize: '.88rem', color: 'var(--text-soft)', lineHeight: 1.6 }}>{item.text}</div>
                   </div>
                 </div>

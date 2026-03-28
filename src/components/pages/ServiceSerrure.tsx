@@ -19,7 +19,7 @@ export default function ServiceSerrure() {
       <section style={{ background: 'linear-gradient(135deg,#0f3460 0%,#1a4080 100%)', padding: '5rem 2.5rem' }}>
         <div style={{ maxWidth: '800px', margin: '0 auto' }}>
           <div className="label-tag" style={{ color: 'rgba(255,255,255,.5)' }}>Installation & Sécurité</div>
-          <h1 style={{ fontFamily: "'Syne',sans-serif", fontSize: 'clamp(2rem,4vw,3.5rem)', fontWeight: 800, color: '#fff', lineHeight: 1.1, marginBottom: '1.2rem' }}>
+          <h1 style={{ fontFamily: "'Clear Sans',sans-serif", fontSize: 'clamp(2rem,4vw,3.5rem)', fontWeight: 800, color: '#fff', lineHeight: 1.1, marginBottom: '1.2rem' }}>
             Changement de serrure<br /><span style={{ color: 'var(--orange)' }}>& installation</span>
           </h1>
           <p style={{ fontSize: '1.05rem', color: 'rgba(255,255,255,.65)', lineHeight: 1.7, maxWidth: '560px', marginBottom: '2rem' }}>
@@ -40,7 +40,7 @@ export default function ServiceSerrure() {
       <section className="section" style={{ background: '#fff' }}>
         <div className="container">
           <div className="reveal" style={{ maxWidth: '760px' }}>
-            <h2 style={{ fontFamily: "'Syne',sans-serif", fontSize: '1.75rem', color: 'var(--navy)', marginBottom: '.9rem' }}>
+            <h2 style={{ fontFamily: "'Clear Sans',sans-serif", fontSize: '1.75rem', color: 'var(--navy)', marginBottom: '.9rem' }}>
               Quelle serrure choisir ?
             </h2>
             <p style={{ color: 'var(--text-soft)', lineHeight: 1.8, marginBottom: '1rem', fontSize: '.95rem' }}>
@@ -55,7 +55,7 @@ export default function ServiceSerrure() {
                 { title: 'Blindage de porte', text: 'Coffre blindé + serrure A2P. Protection maximale contre l\'effraction.' },
               ].map((item) => (
                 <div key={item.title} style={{ background: 'var(--gray-50)', borderRadius: '12px', padding: '1.2rem', border: '1px solid var(--gray-200)' }}>
-                  <div style={{ fontFamily: "'Syne',sans-serif", fontWeight: 700, fontSize: '.9rem', color: 'var(--navy)', marginBottom: '.4rem' }}>{item.title}</div>
+                  <div style={{ fontFamily: "'Clear Sans',sans-serif", fontWeight: 700, fontSize: '.9rem', color: 'var(--navy)', marginBottom: '.4rem' }}>{item.title}</div>
                   <div style={{ fontSize: '.8rem', color: 'var(--text-soft)', lineHeight: 1.6 }}>{item.text}</div>
                 </div>
               ))}

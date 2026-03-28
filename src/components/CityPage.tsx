@@ -8,7 +8,9 @@ import ContactSection from './ContactSection'
 import Footer from './Footer'
 
 export default function CityPage() {
-  const { slug } = useParams<{ slug: string }>()
+  const { slug: rawSlug } = useParams<{ slug: string }>()
+  // Route is /zones-intervention/:slug where slug = "serrurier-polliat"
+  const slug = rawSlug?.startsWith('serrurier-') ? rawSlug.slice('serrurier-'.length) : rawSlug
   const city = slug ? CITY_BY_SLUG.get(slug) : undefined
 
   useReveal(slug)
@@ -117,7 +119,7 @@ export default function CityPage() {
 
             {/* FAQ locale */}
             <div style={{ marginTop: '2.5rem' }}>
-              <h3 style={{ fontFamily: "'Syne',sans-serif", fontSize: '1.2rem', color: 'var(--navy)', marginBottom: '1.2rem' }}>
+              <h3 style={{ fontFamily: "'Clear Sans',sans-serif", fontSize: '1.2rem', color: 'var(--navy)', marginBottom: '1.2rem' }}>
                 Questions fréquentes
               </h3>
               {faq.map((item, i) => (
@@ -181,7 +183,7 @@ export default function CityPage() {
                 </div>
               </div>
               <a href="tel:+33698956423" className="btn-primary" style={{ width: '100%', justifyContent: 'center', marginTop: '.9rem', borderRadius: '10px', fontSize: '.88rem' }}>
-                📞 06 98 95 64 23
+                06 98 95 64 23
               </a>
             </div>
           </div>

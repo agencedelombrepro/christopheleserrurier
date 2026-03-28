@@ -12,7 +12,7 @@ export default function MentionsLegales() {
     <>
       <section className="section" style={{ background: '#fff', minHeight: '60vh' }}>
         <div className="container" style={{ maxWidth: '760px' }}>
-          <h1 style={{ fontFamily: "'Syne',sans-serif", fontSize: '2rem', color: 'var(--navy)', marginBottom: '2rem' }}>Mentions légales</h1>
+          <h1 style={{ fontFamily: "'Clear Sans',sans-serif", fontSize: '2rem', color: 'var(--navy)', marginBottom: '2rem' }}>Mentions légales</h1>
 
           {[
             {
@@ -44,7 +44,7 @@ export default function MentionsLegales() {
             },
           ].map((section) => (
             <div key={section.title} style={{ marginBottom: '2rem' }}>
-              <h2 style={{ fontFamily: "'Syne',sans-serif", fontSize: '1.1rem', color: 'var(--navy)', marginBottom: '.75rem', borderBottom: '2px solid var(--orange)', paddingBottom: '.4rem', display: 'inline-block' }}>
+              <h2 style={{ fontFamily: "'Clear Sans',sans-serif", fontSize: '1.1rem', color: 'var(--navy)', marginBottom: '.75rem', borderBottom: '2px solid var(--orange)', paddingBottom: '.4rem', display: 'inline-block' }}>
                 {section.title}
               </h2>
               {section.content.map((line, i) => (

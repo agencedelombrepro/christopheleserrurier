@@ -16,19 +16,7 @@ export default function Nav() {
     <>
       <nav id="mainNav">
         <Link to="/" className="nav-logo">
-          <div className="nav-logo-icon">
-            <svg width="21" height="21" viewBox="0 0 24 24" fill="none">
-              <circle cx="9" cy="9" r="4.5" stroke="white" strokeWidth="2" />
-              <path d="M13.5 9h7M17.5 6.5v5" stroke="white" strokeWidth="2" strokeLinecap="round" />
-              <path d="M13.5 13.5l-3.5 8" stroke="white" strokeWidth="2" strokeLinecap="round" />
-              <rect x="7" y="18" width="5" height="2.5" rx=".8" fill="white" />
-              <rect x="7" y="15" width="4" height="2.5" rx=".8" fill="white" />
-            </svg>
-          </div>
-          <div>
-            <div className="nav-brand">Christophe Le Serrurier</div>
-            <div className="nav-tagline">Montrevel-en-Bresse · 7J/7</div>
-          </div>
+          <img src="/logo-clair.png" alt="Christophe Le Serrurier" className="nav-logo-img" />
         </Link>
 
         <ul className="nav-links">
@@ -45,7 +33,9 @@ export default function Nav() {
               ))}
             </div>
           </li>
+          <li><Link to="/realisations">Réalisations</Link></li>
           <li><Link to="/contact">Contact</Link></li>
+          <li><Link to="/blog">Blog</Link></li>
         </ul>
 
         <a href="tel:+33698956423" className="nav-phone">
@@ -63,13 +53,15 @@ export default function Nav() {
       <div className={`mobile-overlay${drawerOpen ? ' open' : ''}`} onClick={() => setDrawerOpen(false)} />
       <div className={`mobile-drawer${drawerOpen ? ' open' : ''}`}>
         <div className="mobile-drawer-header">
-          <span style={{ fontFamily: "'Syne',sans-serif", fontWeight: 700, color: 'var(--navy)' }}>Menu</span>
+          <span style={{ fontFamily: "'Clear Sans',sans-serif", fontWeight: 700, color: 'var(--navy)' }}>Menu</span>
           <button className="mobile-close" onClick={() => setDrawerOpen(false)}>✕</button>
         </div>
-        <Link className="drawer-link" to="/" onClick={() => setDrawerOpen(false)}>🏠 Accueil</Link>
-        <a className="drawer-link" href={anchorHref('urgence')} onClick={() => setDrawerOpen(false)}>🚨 Urgence</a>
-        <a className="drawer-link" href={anchorHref('services')} onClick={() => setDrawerOpen(false)}>🔧 Services</a>
-        <Link className="drawer-link" to="/contact" onClick={() => setDrawerOpen(false)}>📝 Contact</Link>
+        <Link className="drawer-link" to="/" onClick={() => setDrawerOpen(false)}>Accueil</Link>
+        <a className="drawer-link" href={anchorHref('urgence')} onClick={() => setDrawerOpen(false)}>Urgence</a>
+        <a className="drawer-link" href={anchorHref('services')} onClick={() => setDrawerOpen(false)}>Services</a>
+        <Link className="drawer-link" to="/realisations" onClick={() => setDrawerOpen(false)}>Réalisations</Link>
+        <Link className="drawer-link" to="/contact" onClick={() => setDrawerOpen(false)}>Contact</Link>
+        <Link className="drawer-link" to="/blog" onClick={() => setDrawerOpen(false)}>Blog</Link>
         <div className="drawer-link" style={{ cursor: 'default', color: 'var(--text-soft)', fontSize: '.78rem', padding: '.5rem 0' }}>VILLES :</div>
         <div className="drawer-cities">
           {CITIES.filter((c) => c.tier <= 2).map((c) => (
@@ -80,7 +72,7 @@ export default function Nav() {
         </div>
         <div style={{ marginTop: '1.3rem' }}>
           <a href="tel:+33698956423" className="btn-primary" style={{ width: '100%', justifyContent: 'center', borderRadius: '11px' }}>
-            📞 06 98 95 64 23
+            06 98 95 64 23
           </a>
         </div>
       </div>

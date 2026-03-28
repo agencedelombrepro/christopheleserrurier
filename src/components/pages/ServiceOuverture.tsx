@@ -19,7 +19,7 @@ export default function ServiceOuverture() {
       <section style={{ background: 'linear-gradient(135deg,#0D1846 0%,#E95623 100%)', padding: '5rem 2.5rem' }}>
         <div style={{ maxWidth: '800px', margin: '0 auto' }}>
           <div className="label-tag" style={{ color: 'rgba(255,255,255,.6)' }}>Urgence porte</div>
-          <h1 style={{ fontFamily: "'Syne',sans-serif", fontSize: 'clamp(2rem,4vw,3.5rem)', fontWeight: 800, color: '#fff', lineHeight: 1.1, marginBottom: '1.2rem' }}>
+          <h1 style={{ fontFamily: "'Clear Sans',sans-serif", fontSize: 'clamp(2rem,4vw,3.5rem)', fontWeight: 800, color: '#fff', lineHeight: 1.1, marginBottom: '1.2rem' }}>
             Ouverture de porte<br /><span style={{ color: '#fff', opacity: .85 }}>claquée ou bloquée</span>
           </h1>
           <p style={{ fontSize: '1.05rem', color: 'rgba(255,255,255,.75)', lineHeight: 1.7, maxWidth: '560px', marginBottom: '2rem' }}>
@@ -41,7 +41,7 @@ export default function ServiceOuverture() {
       <section className="section" style={{ background: '#fff' }}>
         <div className="container">
           <div className="reveal" style={{ maxWidth: '760px' }}>
-            <h2 style={{ fontFamily: "'Syne',sans-serif", fontSize: '1.75rem', color: 'var(--navy)', marginBottom: '.9rem' }}>
+            <h2 style={{ fontFamily: "'Clear Sans',sans-serif", fontSize: '1.75rem', color: 'var(--navy)', marginBottom: '.9rem' }}>
               Ouverture sans casse — comment ça marche ?
             </h2>
             <p style={{ color: 'var(--text-soft)', lineHeight: 1.8, marginBottom: '1rem', fontSize: '.95rem' }}>
@@ -55,7 +55,7 @@ export default function ServiceOuverture() {
             </p>
 
             <div style={{ marginTop: '2rem', padding: '1.5rem', background: 'rgba(233,86,35,.05)', borderRadius: '14px', border: '1.5px solid rgba(233,86,35,.15)' }}>
-              <div style={{ fontFamily: "'Syne',sans-serif", fontWeight: 700, color: 'var(--navy)', marginBottom: '.5rem' }}>Comment ça se passe concrètement</div>
+              <div style={{ fontFamily: "'Clear Sans',sans-serif", fontWeight: 700, color: 'var(--navy)', marginBottom: '.5rem' }}>Comment ça se passe concrètement</div>
               {['Vous appelez le 06 98 95 64 23', 'Christophe vous donne un tarif indicatif par téléphone', 'Il arrive sur place et confirme le devis', 'Il ouvre la porte — sans casse si possible', 'Paiement après intervention — chèque, espèces ou virement'].map((step, i) => (
                 <div key={i} style={{ display: 'flex', gap: '.75rem', alignItems: 'flex-start', marginBottom: '.6rem' }}>
                   <div style={{ width: '22px', height: '22px', background: 'var(--orange)', color: '#fff', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '.7rem', fontWeight: 800, flexShrink: 0 }}>{i + 1}</div>

@@ -6,20 +6,8 @@ export default function Footer() {
     <footer>
       <div className="footer-grid">
         <div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '.75rem', marginBottom: '.9rem' }}>
-            <div className="footer-logo-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                <circle cx="9" cy="9" r="4.5" stroke="white" strokeWidth="2" />
-                <path d="M13.5 9h7M17.5 6.5v5" stroke="white" strokeWidth="2" strokeLinecap="round" />
-                <path d="M13.5 13.5l-3.5 8" stroke="white" strokeWidth="2" strokeLinecap="round" />
-                <rect x="7" y="18" width="5" height="2.5" rx=".8" fill="white" />
-                <rect x="7" y="15" width="4" height="2.5" rx=".8" fill="white" />
-              </svg>
-            </div>
-            <div>
-              <div className="footer-brand">Christophe Le Serrurier</div>
-              <div className="footer-tagline">Votre sécurité, notre métier</div>
-            </div>
+          <div style={{ marginBottom: '1.2rem' }}>
+            <img src="/logo.png" alt="Christophe Le Serrurier" className="footer-logo-img" />
           </div>
           <p className="footer-desc">
             Artisan serrurier indépendant, diplômé CAP et formé chez les Compagnons du Tour de France.<br />
@@ -34,6 +22,8 @@ export default function Footer() {
           <Link className="footer-link" to="/ouverture-porte-claquee">Ouverture de porte</Link>
           <Link className="footer-link" to="/changement-serrure">Changement de serrure</Link>
           <Link className="footer-link" to="/securisation-cambriolage">Sécurisation cambriolage</Link>
+          <Link className="footer-link" to="/realisations">Réalisations</Link>
+          <Link className="footer-link" to="/blog">Blog & Conseils</Link>
         </div>
 
         <div>
@@ -65,7 +55,7 @@ export default function Footer() {
       </div>
 
       <div className="footer-bottom">
-        <div className="footer-copy">© 2025 Christophe Le Serrurier — Conception L&amp;A Communication</div>
+        <div className="footer-copy">© 2026 Christophe Le Serrurier — Site créé en toute discrétion par <a href="https://site.agencedelombre.fr" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'underline' }}>l'Agence de L'Ombre</a></div>
         <div className="footer-copy">
           <Link to="/mentions-legales" style={{ color: 'inherit', textDecoration: 'none' }}>Mentions légales</Link>
           &nbsp;·&nbsp;Ain (01) · Jura (39) · Saône-et-Loire (71)

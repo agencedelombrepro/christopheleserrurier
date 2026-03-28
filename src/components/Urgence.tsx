@@ -1,4 +1,8 @@
+import { useCounter } from '../hooks/useCounter'
+
 export default function Urgence() {
+  const stat90 = useCounter(90)
+  const stat7 = useCounter(7)
   return (
     <section className="section urgence-section" id="urgence">
       <div className="container">
@@ -16,8 +20,8 @@ export default function Urgence() {
               06 98 95 64 23
             </a>
             <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap' }}>
-              <div><div className="urgence-stat">7J/7</div><div className="urgence-stat-label">Jours fériés inclus</div></div>
-              <div><div className="urgence-stat">90 km</div><div className="urgence-stat-label">Autour de Montrevel</div></div>
+              <div ref={stat7.ref}><div className="urgence-stat">{stat7.count}J/7</div><div className="urgence-stat-label">Jours fériés inclus</div></div>
+              <div ref={stat90.ref}><div className="urgence-stat">{stat90.count} km</div><div className="urgence-stat-label">Autour de Montrevel</div></div>
               <div><div className="urgence-stat">0 €</div><div className="urgence-stat-label">Devis gratuit</div></div>
             </div>
           </div>

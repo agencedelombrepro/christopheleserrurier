@@ -11,7 +11,7 @@ export function useReveal(dep?: unknown) {
         },
         { threshold: 0.08 }
       )
-      document.querySelectorAll('.reveal').forEach((el) => {
+      document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-zoom').forEach((el) => {
         el.classList.remove('visible')
         observer.observe(el)
       })

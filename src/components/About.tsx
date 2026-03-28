@@ -3,19 +3,13 @@ export default function About() {
     <section className="section about-section" id="about">
       <div className="container">
         <div className="about-grid">
-          <div className="about-vis reveal">
-            <svg width="260" height="300" viewBox="0 0 260 300" fill="none" style={{ position: 'relative', zIndex: 1 }}>
-              <circle cx="130" cy="85" r="45" fill="rgba(64,110,183,.25)" stroke="rgba(64,110,183,.4)" strokeWidth="2" />
-              <circle cx="130" cy="75" r="28" fill="rgba(100,148,212,.3)" />
-              <path d="M80 160 Q80 130 130 125 Q180 130 180 160 L190 260 H70 Z" fill="rgba(64,110,183,.2)" stroke="rgba(64,110,183,.35)" strokeWidth="1.5" />
-              <rect x="78" y="195" width="104" height="14" rx="4" fill="rgba(233,86,35,.25)" stroke="rgba(233,86,35,.4)" strokeWidth="1" />
-              <circle cx="115" cy="202" r="7" stroke="rgba(255,255,255,.5)" strokeWidth="1.5" fill="none" />
-              <rect x="121" y="200" width="22" height="4" rx="1.5" fill="rgba(255,255,255,.4)" />
-              <path d="M148 198 Q155 192 162 198 Q165 205 158 210 L148 210 Z" fill="rgba(255,255,255,.3)" stroke="rgba(255,255,255,.4)" strokeWidth="1" />
-              <ellipse cx="130" cy="52" rx="35" ry="12" fill="rgba(233,86,35,.5)" stroke="rgba(233,86,35,.7)" strokeWidth="1.5" />
-              <rect x="100" y="52" width="60" height="18" rx="3" fill="rgba(233,86,35,.4)" stroke="rgba(233,86,35,.6)" strokeWidth="1" />
-              <polygon points="130,54 132,59 137,59 133,62 135,67 130,64 125,67 127,62 123,59 128,59" fill="rgba(255,255,255,.6)" />
-            </svg>
+          <div className="about-vis reveal-left">
+            <img
+              src="/christophe.jpg"
+              alt="Christophe, serrurier artisan à Montrevel-en-Bresse"
+              className="about-photo"
+              style={{ opacity: 1 }}
+            />
             <div className="about-vis-overlay" />
             <div className="about-vis-caption">
               <div className="name">Christophe</div>
@@ -34,7 +28,7 @@ export default function About() {
             </div>
           </div>
 
-          <div className="reveal reveal-delay-1">
+          <div className="reveal-right">
             <div className="label-tag">À propos</div>
             <h2 className="section-title" style={{ marginBottom: '1.3rem' }}>
               Un artisan <em>de confiance</em> près de chez vous

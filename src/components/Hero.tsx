@@ -1,10 +1,13 @@
 import { useEffect, useRef, useState } from 'react'
+import { useCounter } from '../hooks/useCounter'
 
 interface HeroProps {
   onGoTo: (sectionId: string, label: string) => void
 }
 
 export default function Hero({ onGoTo }: HeroProps) {
+  const stat90 = useCounter(90)
+  const stat7 = useCounter(7)
   const patRef = useRef<HTMLDivElement>(null)
   const [riShow, setRiShow] = useState(false)
   const [riText, setRiText] = useState('')
@@ -54,7 +57,13 @@ export default function Hero({ onGoTo }: HeroProps) {
 
       {/* Right panel illustration */}
       <div className="hero-photo-panel">
-        <div className="hero-photo-inner">
+        <img
+          src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1200&q=80"
+          alt=""
+          aria-hidden="true"
+          className="hero-photo-bg"
+        />
+        <div className="hero-photo-inner" style={{ background: 'linear-gradient(135deg,rgba(13,24,70,.85) 0%,rgba(35,65,160,.7) 40%,rgba(13,24,70,.9) 100%)' }}>
           <svg width="340" height="400" viewBox="0 0 340 400" fill="none" opacity=".9">
             <path d="M100 165 L100 100 Q100 38 170 38 Q240 38 240 100 L240 165" stroke="rgba(233,86,35,.7)" strokeWidth="22" strokeLinecap="round" fill="none" />
             <rect x="52" y="158" width="236" height="195" rx="24" fill="rgba(64,110,183,.12)" stroke="rgba(64,110,183,.4)" strokeWidth="2.5" />
@@ -105,8 +114,8 @@ export default function Hero({ onGoTo }: HeroProps) {
             </a>
           </div>
           <div className="hero-stats">
-            <div><div className="hero-stat-val">7J/7</div><div className="hero-stat-label">Disponibilité</div></div>
-            <div><div className="hero-stat-val">90 km</div><div className="hero-stat-label">Rayon d'action</div></div>
+            <div ref={stat7.ref}><div className="hero-stat-val">{stat7.count}J/7</div><div className="hero-stat-label">Disponibilité</div></div>
+            <div ref={stat90.ref}><div className="hero-stat-val">{stat90.count} km</div><div className="hero-stat-label">Rayon d'action</div></div>
             <div><div className="hero-stat-val">CAP</div><div className="hero-stat-label">Diplômé</div></div>
             <div><div className="hero-stat-val">0 €</div><div className="hero-stat-label">Devis</div></div>
           </div>
