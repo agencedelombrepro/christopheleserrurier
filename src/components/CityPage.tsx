@@ -163,7 +163,7 @@ export default function CityPage() {
               <div className="city-info-item">
                 <div className="cit-icon">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E95623" strokeWidth="2" strokeLinecap="round">
-                    <line x1="12" y1="1" x2="12" y2="23" /><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" />
+                    <path d="M18 8A6 6 0 006 12a6 6 0 0012 0" /><path d="M4 10h12M4 14h12" />
                   </svg>
                 </div>
                 <div>
