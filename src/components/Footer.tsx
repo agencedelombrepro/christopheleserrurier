@@ -12,7 +12,7 @@ export default function Footer() {
           <p className="footer-desc">
             Artisan serrurier indépendant, diplômé CAP et formé chez les Compagnons du Tour de France.<br />
             Intervention 7J/7 dans un rayon de 90 km autour de Montrevel-en-Bresse.<br />
-            255 rue des Luyers, Domaine St Roch Bata — 01340 Montrevel-en-Bresse
+            255 rue des Luyers, Domaine St Roch Bata, 01340 Montrevel-en-Bresse
           </p>
         </div>
 

@@ -1,7 +1,7 @@
 export interface Realisation {
   id: number
   title: string
-  category: 'Ouverture' | 'Serrure' | 'Blindage' | 'Sécurisation' | 'Installation'
+  category: 'Ouverture' | 'Serrure' | 'Blindage' | 'Sécurisation' | 'Installation' | 'Professionnel' | 'Renforcement' | 'Rénovation'
   location: string
   description: string
   before?: string
@@ -16,7 +16,7 @@ export const REALISATIONS: Realisation[] = [
     category: 'Blindage',
     location: 'Montrevel-en-Bresse',
     description: 'Remplacement d\'une porte d\'entrée standard par une porte blindée 3 points avec cylindre haute sécurité A2P 2 étoiles. Finition bois naturel.',
-    after: 'https://images.unsplash.com/photo-1575505586569-646b2ca898fc?auto=format&fit=crop&w=700&q=80',
+    after: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=700&q=80',
     tags: ['Porte blindée', 'A2P', 'Serrure multipoints'],
   },
   {
@@ -58,7 +58,7 @@ export const REALISATIONS: Realisation[] = [
   {
     id: 6,
     title: 'Installation contrôle d\'accès',
-    category: 'Installation',
+    category: 'Professionnel',
     location: 'Bâgé-Dommartin',
     description: 'Mise en place d\'un système de contrôle d\'accès par badge et digicode pour un local professionnel. Installation complète serrure électrique et tableau de commande.',
     after: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=700&q=80',
@@ -66,17 +66,17 @@ export const REALISATIONS: Realisation[] = [
   },
   {
     id: 7,
-    title: 'Blindage fenêtre de cave',
-    category: 'Blindage',
+    title: 'Barreaux anti-effraction cave',
+    category: 'Renforcement',
     location: 'Saint-Trivier-de-Courtes',
     description: 'Renforcement de deux fenêtres de cave avec pose de barreaux anti-effraction en acier traité. Soudure sur place et finition peinture.',
-    after: 'https://images.unsplash.com/photo-1585771724684-38269d6639fd?auto=format&fit=crop&w=700&q=80',
+    after: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=700&q=80',
     tags: ['Fenêtres', 'Barreaux', 'Anti-effraction'],
   },
   {
     id: 8,
     title: 'Remplacement serrure ancienne',
-    category: 'Serrure',
+    category: 'Rénovation',
     location: 'Pont-de-Vaux',
     description: 'Remplacement d\'une vieille serrure à fouillot d\'une maison ancienne. Adaptation et pose d\'une serrure moderne tout en conservant l\'esthétique d\'origine.',
     after: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=700&q=80',
@@ -84,4 +84,4 @@ export const REALISATIONS: Realisation[] = [
   },
 ]
 
-export const CATEGORIES = ['Toutes', 'Ouverture', 'Serrure', 'Blindage', 'Sécurisation', 'Installation'] as const
+export const CATEGORIES = ['Toutes', 'Ouverture', 'Serrure', 'Blindage', 'Sécurisation', 'Installation', 'Professionnel', 'Renforcement', 'Rénovation'] as const

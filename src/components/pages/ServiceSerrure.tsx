@@ -44,7 +44,7 @@ export default function ServiceSerrure() {
               Quelle serrure choisir ?
             </h2>
             <p style={{ color: 'var(--text-soft)', lineHeight: 1.8, marginBottom: '1rem', fontSize: '.95rem' }}>
-              Le marché des serrures est compliqué. Christophe vous guide sans jargon : il évalue votre porte, votre niveau de risque et vous propose une solution <strong>adaptée à votre réel besoin</strong> — pas la plus chère.
+              Le marché des serrures est compliqué. Christophe vous guide sans jargon : il évalue votre porte, votre niveau de risque et vous propose une solution <strong>adaptée à votre réel besoin</strong>, pas la plus chère.
             </p>
 
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginTop: '1.5rem', marginBottom: '1.5rem' }}>

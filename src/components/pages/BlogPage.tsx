@@ -27,7 +27,7 @@ export default function BlogPage() {
             Blog <span style={{ color: 'var(--orange)' }}>& Conseils</span>
           </h1>
           <p style={{ fontSize: '1.05rem', color: 'rgba(255,255,255,.6)', maxWidth: 520, lineHeight: 1.7 }}>
-            Conseils pratiques, guides d'achat et réponses aux questions fréquentes — par un artisan serrurier de terrain.
+            Conseils pratiques, guides d'achat et réponses aux questions fréquentes. Par un artisan serrurier de terrain.
           </p>
         </div>
       </div>

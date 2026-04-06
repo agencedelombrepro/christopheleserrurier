@@ -64,7 +64,7 @@ export default function ServiceSecurisation() {
             </div>
 
             <div style={{ padding: '1.2rem 1.5rem', background: 'rgba(233,86,35,.05)', borderRadius: '12px', border: '1.5px solid rgba(233,86,35,.15)', fontSize: '.9rem', color: 'var(--text-soft)', lineHeight: 1.7 }}>
-              <strong style={{ color: 'var(--navy)' }}>Bon à savoir :</strong> Signalez le cambriolage à la gendarmerie ou au commissariat avant de toucher quoi que ce soit. Conservez le justificatif de dépôt de plainte — votre assurance peut prendre en charge tout ou partie des frais de sécurisation.
+              <strong style={{ color: 'var(--navy)' }}>Bon à savoir :</strong> Signalez le cambriolage à la gendarmerie ou au commissariat avant de toucher quoi que ce soit. Conservez le justificatif de dépôt de plainte. Votre assurance peut prendre en charge tout ou partie des frais de sécurisation.
             </div>
           </div>
         </div>

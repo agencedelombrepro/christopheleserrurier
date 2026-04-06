@@ -48,13 +48,13 @@ export default function ServiceDepannage() {
                 Un serrurier qui répond vraiment, même la nuit
               </h2>
               <p style={{ color: 'var(--text-soft)', lineHeight: 1.8, marginBottom: '1rem', fontSize: '.95rem' }}>
-                Les plateformes de serruriers font des promesses d'intervention rapide, mais envoient un sous-traitant inconnu — parfois de très loin. Chez Christophe, <strong>vous appelez l'artisan directement</strong>. Pas de centrale téléphonique, pas d'intermédiaire, pas de surprise sur la facture.
+                Les plateformes de serruriers font des promesses d'intervention rapide, mais envoient un sous-traitant inconnu, parfois de très loin. Chez Christophe, <strong>vous appelez l'artisan directement</strong>. Pas de centrale téléphonique, pas d'intermédiaire, pas de surprise sur la facture.
               </p>
               <p style={{ color: 'var(--text-soft)', lineHeight: 1.8, marginBottom: '1rem', fontSize: '.95rem' }}>
                 Formé chez les <strong>Compagnons du Tour de France</strong> et titulaire d'un <strong>CAP Serrurier Métallier</strong>, Christophe pratique l'ouverture <strong>sans casse</strong> lorsque la serrure le permet. Le tarif est annoncé avant toute intervention.
               </p>
               <p style={{ color: 'var(--text-soft)', lineHeight: 1.8, fontSize: '.95rem' }}>
-                Zone d'intervention : <strong>Ain (01), Jura (39), Saône-et-Loire (71)</strong> — 90 km autour de Montrevel-en-Bresse. Consultez{' '}
+                Zone d'intervention : <strong>Ain (01), Jura (39), Saône-et-Loire (71)</strong>, dans un rayon de 90 km autour de Montrevel-en-Bresse. Consultez{' '}
                 <Link to="/zones-intervention" style={{ color: 'var(--orange)' }}>les villes couvertes</Link>.
               </p>
 

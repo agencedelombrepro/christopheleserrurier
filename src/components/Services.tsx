@@ -14,7 +14,7 @@ export default function Services() {
           {/* Featured */}
           <div className="service-card featured">
             <div className="svc-img" style={{ height: 'auto', padding: '2rem' }}>
-              <img src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?auto=format&fit=crop&w=700&q=80" className="svc-photo" alt="" />
+              <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=700&q=80" className="svc-photo" alt="" />
               <div className="svc-photo-overlay" style={{ background: 'linear-gradient(135deg,rgba(13,24,70,.88) 0%,rgba(233,86,35,.6) 100%)' }} />
               <svg width="160" height="160" viewBox="0 0 160 160" fill="none">
                 <rect x="18" y="70" width="124" height="80" rx="14" fill="rgba(255,255,255,.08)" stroke="rgba(255,255,255,.25)" strokeWidth="2" />
@@ -46,7 +46,7 @@ export default function Services() {
           {/* Installation & Blindage */}
           <div className="service-card">
             <div className="svc-img" style={{ background: 'linear-gradient(135deg,#0f3460,#1a4080)' }}>
-              <img src="https://images.unsplash.com/photo-1575505586569-646b2ca898fc?auto=format&fit=crop&w=600&q=80" className="svc-photo" alt="" />
+              <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=80" className="svc-photo" alt="" />
               <div className="svc-photo-overlay" style={{ background: 'linear-gradient(135deg,rgba(15,52,96,.92) 0%,rgba(26,64,128,.75) 100%)' }} />
               <svg width="100" height="100" viewBox="0 0 100 100" fill="none">
                 <path d="M50 90 S82 70 82 46 L82 22 L50 10 L18 22 L18 46 C18 70 50 90 50 90Z" fill="rgba(64,110,183,.2)" stroke="rgba(64,110,183,.6)" strokeWidth="2" strokeLinejoin="round" />
@@ -91,7 +91,7 @@ export default function Services() {
           {/* Sécurisation effraction */}
           <div className="service-card">
             <div className="svc-img" style={{ background: 'linear-gradient(135deg,#4a0a0a,#8a1a1a)' }}>
-              <img src="https://images.unsplash.com/photo-1503387837-b154d5074bd2?auto=format&fit=crop&w=600&q=80" className="svc-photo" alt="" />
+              <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=600&q=80" className="svc-photo" alt="" />
               <div className="svc-photo-overlay" style={{ background: 'linear-gradient(135deg,rgba(74,10,10,.9) 0%,rgba(138,26,26,.75) 100%)' }} />
               <svg width="90" height="90" viewBox="0 0 90 90" fill="none">
                 <rect x="15" y="10" width="55" height="75" rx="6" stroke="rgba(255,255,255,.4)" strokeWidth="2.5" fill="rgba(255,255,255,.05)" />

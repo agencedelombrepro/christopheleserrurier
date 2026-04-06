@@ -39,7 +39,7 @@ export default function CityPage() {
     },
     {
       q: `Quel est le tarif d'un serrurier à ${city.name} ?`,
-      a: `Christophe pratique des tarifs transparents avec devis gratuit avant intervention. Pas de surprise : le prix est fixé avant de commencer. Pas de sur-facturation liée à une plateforme ou centrale téléphonique — vous appelez l'artisan directement.`,
+      a: `Christophe pratique des tarifs transparents avec devis gratuit avant intervention. Pas de surprise : le prix est fixé avant de commencer. Pas de sur-facturation liée à une plateforme ou centrale téléphonique. Vous appelez l'artisan directement.`,
     },
   ]
 

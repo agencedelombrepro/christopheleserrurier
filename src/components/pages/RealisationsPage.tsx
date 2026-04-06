@@ -24,12 +24,12 @@ export default function RealisationsPage() {
       <div style={{ background: 'var(--navy)', padding: '5rem 2.5rem 4rem', position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', top: -120, right: -80, width: 500, height: 500, borderRadius: '50%', background: 'radial-gradient(circle, rgba(64,110,183,.15) 0%, transparent 70%)', pointerEvents: 'none' }} />
         <div style={{ maxWidth: 1160, margin: '0 auto', position: 'relative', zIndex: 1 }}>
-          <div className="label-tag" style={{ color: 'rgba(255,255,255,.5)' }}>Nos interventions</div>
+          <div className="label-tag" style={{ color: 'rgba(255,255,255,.5)' }}>Mes interventions</div>
           <h1 style={{ fontFamily: "'Clear Sans',sans-serif", fontSize: 'clamp(2.2rem,4.5vw,3.8rem)', fontWeight: 800, color: '#fff', lineHeight: 1.05, margin: '.5rem 0 1rem' }}>
-            Nos <span style={{ color: 'var(--orange)' }}>Réalisations</span>
+            Mes <span style={{ color: 'var(--orange)' }}>Réalisations</span>
           </h1>
           <p style={{ fontSize: '1.05rem', color: 'rgba(255,255,255,.6)', maxWidth: 540, lineHeight: 1.7 }}>
-            Blindages, ouvertures d'urgence, installations, sécurisations — chaque chantier est une mission de confiance.
+            Blindages, ouvertures d'urgence, installations, sécurisations. Chaque chantier est une mission de confiance.
           </p>
         </div>
       </div>

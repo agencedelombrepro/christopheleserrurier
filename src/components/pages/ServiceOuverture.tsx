@@ -25,11 +25,12 @@ export default function ServiceOuverture() {
           <p style={{ fontSize: '1.05rem', color: 'rgba(255,255,255,.75)', lineHeight: 1.7, maxWidth: '560px', marginBottom: '2rem' }}>
             Clé oubliée à l'intérieur, porte claquée, serrure qui bloque ?
             Christophe ouvre votre porte <strong>sans abîmer la serrure</strong> si possible, 7 jours sur 7.
-            Tarif annoncé avant intervention — aucune mauvaise surprise.
+            Tarif annoncé avant intervention, sans mauvaise surprise.
           </p>
           <a href="tel:+33698956423" className="btn-phone-xl" style={{ background: '#fff', color: 'var(--orange)' }}>
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013 12.18 19.79 19.79 0 016.07 3.52 2 2 0 018.05 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L12.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <rect x="5" y="2" width="14" height="20" rx="2" />
+              <line x1="12" y1="18" x2="12.01" y2="18" strokeWidth="3" />
             </svg>
             06 98 95 64 23
           </a>
@@ -56,7 +57,7 @@ export default function ServiceOuverture() {
 
             <div style={{ marginTop: '2rem', padding: '1.5rem', background: 'rgba(233,86,35,.05)', borderRadius: '14px', border: '1.5px solid rgba(233,86,35,.15)' }}>
               <div style={{ fontFamily: "'Clear Sans',sans-serif", fontWeight: 700, color: 'var(--navy)', marginBottom: '.5rem' }}>Comment ça se passe concrètement</div>
-              {['Vous appelez le 06 98 95 64 23', 'Christophe vous donne un tarif indicatif par téléphone', 'Il arrive sur place et confirme le devis', 'Il ouvre la porte — sans casse si possible', 'Paiement après intervention — chèque, espèces ou virement'].map((step, i) => (
+              {['Vous appelez le 06 98 95 64 23', 'Christophe vous donne un tarif indicatif par téléphone', 'Il arrive sur place et confirme le devis', 'Il ouvre la porte, sans casse si possible', 'Paiement après intervention : chèque, espèces ou virement'].map((step, i) => (
                 <div key={i} style={{ display: 'flex', gap: '.75rem', alignItems: 'flex-start', marginBottom: '.6rem' }}>
                   <div style={{ width: '22px', height: '22px', background: 'var(--orange)', color: '#fff', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '.7rem', fontWeight: 800, flexShrink: 0 }}>{i + 1}</div>
                   <div style={{ fontSize: '.9rem', color: 'var(--text-soft)', paddingTop: '2px' }}>{step}</div>
