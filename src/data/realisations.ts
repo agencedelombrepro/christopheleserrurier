@@ -16,7 +16,7 @@ export const REALISATIONS: Realisation[] = [
     category: 'Blindage',
     location: 'Montrevel-en-Bresse',
     description: 'Remplacement d\'une porte d\'entrée standard par une porte blindée 3 points avec cylindre haute sécurité A2P 2 étoiles. Finition bois naturel.',
-    after: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=700&q=80',
+    after: 'https://images.unsplash.com/photo-1575505586569-646b2ca898fc?auto=format&fit=crop&w=700&q=80',
     tags: ['Porte blindée', 'A2P', 'Serrure multipoints'],
   },
   {
@@ -70,7 +70,7 @@ export const REALISATIONS: Realisation[] = [
     category: 'Renforcement',
     location: 'Saint-Trivier-de-Courtes',
     description: 'Renforcement de deux fenêtres de cave avec pose de barreaux anti-effraction en acier traité. Soudure sur place et finition peinture.',
-    after: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=700&q=80',
+    after: 'https://images.unsplash.com/photo-1585771724684-38269d6639fd?auto=format&fit=crop&w=700&q=80',
     tags: ['Fenêtres', 'Barreaux', 'Anti-effraction'],
   },
   {
