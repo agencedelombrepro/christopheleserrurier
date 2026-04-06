@@ -16,7 +16,7 @@ export const REALISATIONS: Realisation[] = [
     category: 'Blindage',
     location: 'Montrevel-en-Bresse',
     description: 'Remplacement d\'une porte d\'entrée standard par une porte blindée 3 points avec cylindre haute sécurité A2P 2 étoiles. Finition bois naturel.',
-    after: 'https://images.unsplash.com/photo-1575505586569-646b2ca898fc?auto=format&fit=crop&w=700&q=80',
+    after: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=700&q=80',
     tags: ['Porte blindée', 'A2P', 'Serrure multipoints'],
   },
   {
@@ -43,7 +43,7 @@ export const REALISATIONS: Realisation[] = [
     category: 'Sécurisation',
     location: 'Louhans',
     description: 'Intervention après tentative d\'effraction : remplacement serrure forcée, renforcement du cadre et pose d\'une armure de porte en urgence.',
-    after: 'https://images.unsplash.com/photo-1503387837-b154d5074bd2?auto=format&fit=crop&w=700&q=80',
+    after: 'https://images.unsplash.com/photo-1584277261846-c6a1672ed979?auto=format&fit=crop&w=700&q=80',
     tags: ['Urgence', 'Effraction', 'Armure de porte'],
   },
   {
@@ -70,7 +70,7 @@ export const REALISATIONS: Realisation[] = [
     category: 'Renforcement',
     location: 'Saint-Trivier-de-Courtes',
     description: 'Renforcement de deux fenêtres de cave avec pose de barreaux anti-effraction en acier traité. Soudure sur place et finition peinture.',
-    after: 'https://images.unsplash.com/photo-1585771724684-38269d6639fd?auto=format&fit=crop&w=700&q=80',
+    after: 'https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=700&q=80',
     tags: ['Fenêtres', 'Barreaux', 'Anti-effraction'],
   },
   {
