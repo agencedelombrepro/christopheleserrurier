@@ -79,8 +79,11 @@ export default function Services() {
             </div>
             <div className="service-body">
               <div className="svc-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#406EB7" strokeWidth="2" strokeLinecap="round">
-                  <circle cx="9" cy="9" r="4" /><path d="M13 9h8M17 7v4" /><path d="M13 13l-3 8" />
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#406EB7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="7" cy="15" r="4" />
+                  <path d="M11 15h9" />
+                  <path d="M17 13v4" />
+                  <path d="M20 13v4" />
                 </svg>
               </div>
               <div className="svc-name">Duplication de clés</div>
