@@ -84,7 +84,7 @@ export default function Services() {
                 </svg>
               </div>
               <div className="svc-name">Duplication de clés</div>
-              <div className="svc-desc">Reproduction de tous types de clés, y compris les modèles sécurisés brevetés. Service rapide et précis.</div>
+              <div className="svc-desc">Reproduction de tous types de clés. Les clés sécurisées brevetées sont reproduites <strong>uniquement sur présentation du numéro ou de la carte de reproduction</strong>.</div>
             </div>
           </div>
 
