@@ -113,6 +113,18 @@
     <changefreq>monthly</changefreq>
   </url>
 
+  <!-- Blog & Réalisations -->
+  <url>
+    <loc>https://christophe-leserrurier.fr/realisations/</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://christophe-leserrurier.fr/blog/</loc>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+
   <!-- Pages secondaires -->
   <url>
     <loc>https://christophe-leserrurier.fr/contact/</loc>
