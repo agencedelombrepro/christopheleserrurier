@@ -11,7 +11,7 @@ export default function RealisationsPage() {
   useSEO({
     title: 'Réalisations — Travaux de serrurerie · Christophe Le Serrurier',
     description: 'Découvrez les réalisations de Christophe Le Serrurier : blindages, ouvertures, installations serrures multipoints, sécurisations dans l\'Ain, le Jura et la Saône-et-Loire.',
-    canonical: 'https://christophe-leserrurier.fr/realisations/',
+    canonical: 'https://christophe-serrurier-ain.fr/realisations/',
   })
 
   const filtered = activeCategory === 'Toutes'

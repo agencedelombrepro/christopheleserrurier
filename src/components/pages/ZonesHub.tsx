@@ -10,7 +10,7 @@ export default function ZonesHub() {
   useSEO({
     title: 'Zone d\'intervention serrurier — Ain, Jura, Saône-et-Loire · Christophe',
     description: 'Serrurier artisan intervenant dans 90 km autour de Montrevel-en-Bresse : Ain, Jura, Saône-et-Loire. Urgence 7J/7. Consultez votre ville. ☎ 06 98 95 64 23',
-    canonical: 'https://christophe-leserrurier.fr/zones-intervention/',
+    canonical: 'https://christophe-serrurier-ain.fr/zones-intervention/',
   })
 
   const tier1 = CITIES.filter((c) => c.tier === 1)

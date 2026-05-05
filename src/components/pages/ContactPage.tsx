@@ -8,7 +8,7 @@ export default function ContactPage() {
   useSEO({
     title: 'Contact serrurier Montrevel-en-Bresse — Devis gratuit',
     description: 'Contactez Christophe Le Serrurier : devis gratuit, urgence 7J/7. ☎ 06 98 95 64 23 · christopheleserrurier@outlook.fr · 01340 Montrevel-en-Bresse',
-    canonical: 'https://christophe-leserrurier.fr/contact/',
+    canonical: 'https://christophe-serrurier-ain.fr/contact/',
   })
 
   return (

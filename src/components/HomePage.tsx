@@ -18,7 +18,7 @@ export default function HomePage() {
   useSEO({
     title: 'Serrurier Montrevel-en-Bresse — Urgence 7J/7 · Christophe',
     description: 'Serrurier artisan à Montrevel-en-Bresse. Ouverture de porte, changement de serrure, sécurisation. Intervention rapide 7J/7 · Ain, Jura, Saône-et-Loire. ☎ 06 98 95 64 23',
-    canonical: 'https://christophe-leserrurier.fr/',
+    canonical: 'https://christophe-serrurier-ain.fr/',
     jsonLd: homepageSchema(),
   })
 

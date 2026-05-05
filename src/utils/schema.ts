@@ -1,6 +1,6 @@
 import { City } from '../data/cities'
 
-const BASE_URL = 'https://christophe-leserrurier.fr'
+const BASE_URL = 'https://christophe-serrurier-ain.fr'
 const NAP = {
   name: 'Christophe Le Serrurier',
   telephone: '+33698956423',

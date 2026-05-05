@@ -11,7 +11,7 @@ export default function ServiceDepannage() {
   useSEO({
     title: 'Dépannage urgence serrurier — Christophe, Ain 7J/7',
     description: 'Serrurier en urgence 7J/7 dans l\'Ain, Jura et Saône-et-Loire. Porte claquée, serrure bloquée, après effraction. Artisan CAP. ☎ 06 98 95 64 23',
-    canonical: 'https://christophe-leserrurier.fr/depannage-urgence/',
+    canonical: 'https://christophe-serrurier-ain.fr/depannage-urgence/',
     jsonLd: serviceSchema('Dépannage serrurier urgence 7J/7', 'Intervention d\'urgence pour ouverture de porte, serrure bloquée, après cambriolage. Artisan serrurier CAP, Compagnons du Tour de France.', '/depannage-urgence/'),
   })
 

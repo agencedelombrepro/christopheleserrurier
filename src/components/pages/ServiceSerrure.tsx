@@ -10,7 +10,7 @@ export default function ServiceSerrure() {
   useSEO({
     title: 'Changement de serrure — Serrurier Ain · Christophe',
     description: 'Changement et installation de serrure haute sécurité, blindage, serrure multipoints. Artisan CAP · Ain, Jura, Saône-et-Loire · Devis gratuit. ☎ 06 98 95 64 23',
-    canonical: 'https://christophe-leserrurier.fr/changement-serrure/',
+    canonical: 'https://christophe-serrurier-ain.fr/changement-serrure/',
     jsonLd: serviceSchema('Changement de serrure et installation', 'Remplacement de serrure, serrure haute sécurité, blindage de porte, serrure multipoints. Artisan CAP serrurier.', '/changement-serrure/'),
   })
 

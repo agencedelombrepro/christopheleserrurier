@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://christophe-leserrurier.fr/sitemap.xml
+Sitemap: https://christophe-serrurier-ain.fr/sitemap.xml

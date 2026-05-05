@@ -13,7 +13,7 @@ export default function BlogPage() {
   useSEO({
     title: 'Blog serrurier — Conseils sécurité & serrurerie · Christophe',
     description: 'Conseils d\'expert en serrurerie : choisir sa serrure, sécuriser son domicile, que faire en cas d\'urgence. Par Christophe Le Serrurier, Montrevel-en-Bresse.',
-    canonical: 'https://christophe-leserrurier.fr/blog/',
+    canonical: 'https://christophe-serrurier-ain.fr/blog/',
   })
 
   return (

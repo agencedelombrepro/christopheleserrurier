@@ -10,7 +10,7 @@ export default function ServiceSecurisation() {
   useSEO({
     title: 'Sécurisation après cambriolage — Serrurier Ain · Christophe',
     description: 'Sécurisation urgente après effraction ou cambriolage. Remplacement serrure, blindage, intervention immédiate 7J/7 · Ain, Jura, Saône-et-Loire. ☎ 06 98 95 64 23',
-    canonical: 'https://christophe-leserrurier.fr/securisation-cambriolage/',
+    canonical: 'https://christophe-serrurier-ain.fr/securisation-cambriolage/',
     jsonLd: serviceSchema('Sécurisation après cambriolage', 'Intervention d\'urgence pour sécuriser votre domicile après effraction. Remplacement de serrure, blindage, mise en sécurité immédiate.', '/securisation-cambriolage/'),
   })
 

@@ -14,7 +14,7 @@ export default function ArticlePage() {
   useSEO(article ? {
     title: `${article.title} — Christophe Le Serrurier`,
     description: article.excerpt,
-    canonical: `https://christophe-leserrurier.fr/blog/${article.slug}/`,
+    canonical: `https://christophe-serrurier-ain.fr/blog/${article.slug}/`,
   } : { title: 'Article introuvable', description: '' })
 
   if (!article) return <Navigate to="/blog" replace />

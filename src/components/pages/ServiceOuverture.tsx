@@ -10,7 +10,7 @@ export default function ServiceOuverture() {
   useSEO({
     title: 'Ouverture porte claquée — Serrurier Ain 7J/7 · Christophe',
     description: 'Porte claquée ou bloquée ? Serrurier artisan intervient rapidement sans casse si possible. 7J/7 · Ain, Jura, Saône-et-Loire. Devis gratuit. ☎ 06 98 95 64 23',
-    canonical: 'https://christophe-leserrurier.fr/ouverture-porte-claquee/',
+    canonical: 'https://christophe-serrurier-ain.fr/ouverture-porte-claquee/',
     jsonLd: serviceSchema('Ouverture de porte claquée', 'Ouverture de porte sans casse si possible. Porte claquée, clé perdue, serrure bloquée. Intervention 7J/7.', '/ouverture-porte-claquee/'),
   })
 

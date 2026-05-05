@@ -20,7 +20,7 @@ export default function CityPage() {
   useSEO(city ? {
     title: `Serrurier à ${city.name} — Intervention rapide 7J/7`,
     description: `Serrurier à ${city.name} — Christophe intervient en urgence 7J/7. CAP, Compagnons du Tour de France. Devis gratuit. ☎ 06 98 95 64 23`,
-    canonical: `https://christophe-leserrurier.fr/zones-intervention/serrurier-${city.slug}/`,
+    canonical: `https://christophe-serrurier-ain.fr/zones-intervention/serrurier-${city.slug}/`,
     jsonLd: schema,
   } : { title: 'Serrurier — Page introuvable', description: '' })
 

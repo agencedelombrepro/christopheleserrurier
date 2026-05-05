@@ -4,8 +4,8 @@ import Footer from '../Footer'
 export default function MentionsLegales() {
   useSEO({
     title: 'Mentions légales — Christophe Le Serrurier',
-    description: 'Mentions légales du site christophe-leserrurier.fr — Christophe Le Serrurier, 255 rue des Luyers, 01340 Montrevel-en-Bresse.',
-    canonical: 'https://christophe-leserrurier.fr/mentions-legales/',
+    description: 'Mentions légales du site christophe-serrurier-ain.fr — Christophe Le Serrurier, 255 rue des Luyers, 01340 Montrevel-en-Bresse.',
+    canonical: 'https://christophe-serrurier-ain.fr/mentions-legales/',
   })
 
   return (
