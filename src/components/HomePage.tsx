@@ -8,7 +8,6 @@ import About from './About'
 import Services from './Services'
 import Urgence from './Urgence'
 import Zone from './Zone'
-import Testimonials from './Testimonials'
 import Reviews from './Reviews'
 import ContactSection from './ContactSection'
 import Footer from './Footer'
@@ -40,7 +39,6 @@ export default function HomePage() {
       <Services />
       <Urgence />
       <Zone />
-      <Testimonials />
       <Reviews />
       <ContactSection />
       <Footer />
