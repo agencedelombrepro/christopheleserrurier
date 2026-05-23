@@ -1,20 +1,41 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 
 interface ContactSectionProps {
   cityName?: string
   title?: string
 }
 
-export default function ContactSection({ cityName, title }: ContactSectionProps) {
-  const [sent, setSent] = useState(false)
+type Status = 'idle' | 'sending' | 'success' | 'error'
 
-  function handleSubmit(e: React.FormEvent) {
-    e.preventDefault()
-    setSent(true)
-    setTimeout(() => setSent(false), 3000)
-  }
+export default function ContactSection({ cityName, title }: ContactSectionProps) {
+  const [status, setStatus] = useState<Status>('idle')
+  const formRef = useRef<HTMLFormElement>(null)
 
   const headline = title ?? (cityName ? `Intervenir à ${cityName}` : 'Demande de devis gratuit')
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault()
+    if (!formRef.current) return
+    setStatus('sending')
+
+    const data = new FormData(formRef.current)
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: data,
+      })
+      const json = await res.json()
+      if (json.success) {
+        setStatus('success')
+        formRef.current.reset()
+      } else {
+        setStatus('error')
+      }
+    } catch {
+      setStatus('error')
+    }
+  }
 
   return (
     <section className="section contact-section" id="contact">
@@ -75,27 +96,45 @@ export default function ContactSection({ cityName, title }: ContactSectionProps)
           <div className="reveal reveal-delay-1">
             <div className="contact-form">
               <div className="form-title">{headline}</div>
-              <form onSubmit={handleSubmit}>
+              <form ref={formRef} onSubmit={handleSubmit}>
+                {/* Web3Forms config */}
+                <input type="hidden" name="access_key" value="555a400d-27c7-4e8a-aaef-56df52c861fc" />
+                <input type="hidden" name="cc_email" value="hello@agencedelombre.fr" />
+                <input type="hidden" name="subject" value="Nouveau message — christophe-serrurier-ain.fr" />
+                <input type="hidden" name="from_name" value="Site Christophe Le Serrurier" />
+                <input type="checkbox" name="botcheck" style={{ display: 'none' }} />
+
                 <div className="form-row">
                   <div className="form-group">
                     <label className="form-label">Nom</label>
-                    <input type="text" className="form-input" placeholder="Jean Dupont" />
+                    <input type="text" name="name" className="form-input" placeholder="Jean Dupont" required />
                   </div>
                   <div className="form-group">
                     <label className="form-label">Téléphone</label>
-                    <input type="tel" className="form-input" placeholder="06 12 34 56 78" />
+                    <input type="tel" name="phone" className="form-input" placeholder="06 12 34 56 78" />
                   </div>
                 </div>
                 <div className="form-group">
                   <label className="form-label">Email</label>
-                  <input type="email" className="form-input" placeholder="jean@email.com" />
+                  <input type="email" name="email" className="form-input" placeholder="jean@email.com" required />
                 </div>
                 <div className="form-group">
                   <label className="form-label">Votre demande</label>
-                  <textarea className="form-textarea" placeholder="Décrivez votre situation ou projet..." />
+                  <textarea name="message" className="form-textarea" placeholder="Décrivez votre situation ou projet..." required />
                 </div>
-                <button type="submit" className="form-submit" style={sent ? { background: '#2d7a3d' } : {}}>
-                  {sent ? '✓ Message envoyé !' : (
+
+                <button type="submit" className="form-submit" disabled={status === 'sending'} style={status === 'success' ? { background: '#2d7a3d' } : status === 'error' ? { background: '#b91c1c' } : {}}>
+                  {status === 'sending' && (
+                    <>
+                      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" style={{ animation: 'spin 1s linear infinite' }}>
+                        <path d="M21 12a9 9 0 11-6.219-8.56" />
+                      </svg>
+                      Envoi en cours...
+                    </>
+                  )}
+                  {status === 'success' && '✓ Message envoyé !'}
+                  {status === 'error' && '✗ Erreur, réessayez'}
+                  {status === 'idle' && (
                     <>
                       <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
                         <line x1="22" y1="2" x2="11" y2="13" /><polygon points="22 2 15 22 11 13 2 9 22 2" />
@@ -104,6 +143,12 @@ export default function ContactSection({ cityName, title }: ContactSectionProps)
                     </>
                   )}
                 </button>
+
+                {status === 'success' && (
+                  <p style={{ marginTop: '.8rem', fontSize: '.82rem', color: '#2d7a3d', textAlign: 'center' }}>
+                    Christophe vous répondra dans les meilleurs délais.
+                  </p>
+                )}
               </form>
             </div>
           </div>
